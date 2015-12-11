@@ -60,10 +60,10 @@ return array(
 			'charset' => 'utf8',
 		),*/
 		'db'=>array(
-			'connectionString' => 'mysql:host=mysql.casadogui.com.br;dbname=casadogui',
+			'connectionString' => 'mysql:host=localhost;dbname=casadogui',
 			'emulatePrepare' => true,
-			'username' => 'casadogui',
-			'password' => 'di140984',
+			'username' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(
