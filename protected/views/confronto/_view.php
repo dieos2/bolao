@@ -28,6 +28,10 @@ $date = date_create($data->data);
     .progress-bar{
      
     }
+	.label {
+    
+    font-size: 100% !important;
+	}
     
 </style>
 <section class="panel panel-default">
@@ -91,8 +95,11 @@ $date = date_create($data->data);
 				
                 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$model,
+	
 	'itemView'=>'_viewAposta',
                      'enablePagination'=>false,
+					
+					 
 )); ?></tbody>
 				</table>
          </div> 

@@ -62,8 +62,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=bolao',
 			'emulatePrepare' => true,
-			'username' => 'dieos',
-			'password' => 'di140984',
+			'username' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(

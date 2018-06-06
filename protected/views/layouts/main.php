@@ -12,7 +12,41 @@
         <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="js/calendar/bootstrap_calendar.css" type="text/css" cache="false" />
         <!--[if lt IE 9]> <script src="js/ie/html5shiv.js" cache="false"></script> <script src="js/ie/respond.min.js" cache="false"></script> <script src="js/ie/excanvas.js" cache="false"></script> <![endif]-->
-        <script src="js/app.v2.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<link rel="manifest" href="js/manifest.json">
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAD3yP6i5UfcQ169MNBkMn3euQBsAhFQ68",
+    authDomain: "bolaocopa-7b8d0.firebaseapp.com",
+    databaseURL: "https://bolaocopa-7b8d0.firebaseio.com",
+    projectId: "bolaocopa-7b8d0",
+    storageBucket: "",
+    messagingSenderId: "539451403175"
+  };
+  
+  firebase.initializeApp(config);
+ 
+ const messaging = firebase.messaging();
+  messaging.usePublicVapidKey("BPwW-KPEq9rPCUXAyo9AgVAHSMObHcoeWz2APxwleZVKZXrfb3z39QUEdGXPQOtgXJY-F1dtY0TJU4nOJ6epuYE");
+ messaging.requestPermission().then(function() {
+  console.log('Notification permission granted.');
+  // TODO(developer): Retrieve an Instance ID token for use with FCM.
+  // ...
+}).catch(function(err) {
+  console.log('Unable to get permission to notify.', err);
+});
+  // Get Instance ID token. Initially this makes a network call, once retrieved
+  // subsequent calls to getToken will return from cache.
+ 
+
+</script>      
+	  <script src="js/app.v2.js"></script>
         <!-- Bootstrap -->
         <!-- App -->
         <script src="js/charts/easypiechart/jquery.easy-pie-chart.js" cache="false"></script>
