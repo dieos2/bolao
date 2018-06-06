@@ -95,10 +95,10 @@ $date = date_create($data->data);
          </div> 
        <div class="progress">
             <div class="progress-bar progress-bar-success" data-toggle="tooltip" data-original-title="<?php echo ConfrontoController::GetNumeroApostaCasa($data->id) ?>" style="width: <?php echo ConfrontoController::GetPorcentagemApostaCasa($data->id) ?>%">
-                <img src="images/barratorcida.png" style=" height: 100%"/>
+                <img src="images/barratorcida.png" style="height: 100%; width: 101%"/>
             </div>
             <div class="progress-bar progress-bar-primary" data-toggle="tooltip" data-original-title="<?php echo ConfrontoController::GetNumeroApostaVisitante($data->id) ?>" style="width: <?php echo ConfrontoController::GetPorcentagemApostaVisitante($data->id) ?>%">
-             <img src="images/barratorcida.png" style=" height: 100%"/>
+             <img src="images/barratorcida.png" style="height: 100%; width: 101%"/>
             </div> 
        </di> 
                             </section>
