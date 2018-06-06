@@ -4,11 +4,12 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Notebook | Web Application</title>
-        <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+        <title>Bolão da Copa Online | Web Application</title>
+        <meta name="description" content="Sistema de Bolão para os frescos não pertubarem mais" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
         <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="js/calendar/bootstrap_calendar.css" type="text/css" cache="false" />
         <!--[if lt IE 9]> <script src="js/ie/html5shiv.js" cache="false"></script> <script src="js/ie/respond.min.js" cache="false"></script> <script src="js/ie/excanvas.js" cache="false"></script> <![endif]-->
         <script src="js/app.v2.js"></script>

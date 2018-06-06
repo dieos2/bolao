@@ -7,22 +7,27 @@
 
 ?> <section class="vbox">
                             <section class="scrollable padder">
- <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
-                                <li><a href="index.php?r=confronto/index&id=0">Todos</a></li>
-                                <li><a href="index.php?r=confronto/index&id=1">A</a></li>
-                                <li class="active"><a href="index.php?r=confronto/index&id=2">B</a></li>
-                                 <li class="active"><a href="index.php?r=confronto/index&id=3">C</a></li>
-                                  <li class="active"><a href="index.php?r=confronto/index&id=4">D</a></li>
-                                   <li class="active"><a href="index.php?r=confronto/index&id=5">E</a></li>
-                                    <li class="active"><a href="index.php?r=confronto/index&id=6">F</a></li>
-                                     <li class="active"><a href="index.php?r=confronto/index&id=7">G</a></li>
-                                      <li class="active"><a href="index.php?r=confronto/index&id=8">H</a></li>
+                                
+ 
+ <select id="selecionarGrupo" class="form-control m-b">
+             <option value="0">Todos</option>
+             <option value="1">A</option>
+             <option value="2">B</option>
+             <option value="3">C</option>
+             <option value="4">D</option>
+             <option value="5">E</option>
+             <option value="6">F</option>
+             <option value="7">G</option>
+             <option value="8">H</option>
+             <option value="10">8ª</option>
+             <option value="11">4ª</option>
+             <option value="12">Semi Final</option>
+             <option value="13">3º Lugar</option>
+             <option value="9">Final</option>
+         </select>
+                               
                                       
-                                        <li class="active"><a href="index.php?r=confronto/index&id=10"> - 8ª</a></li>
-										 <li class="active"><a href="index.php?r=confronto/index&id=11"> - 4ª</a></li>
-										  <li class="active"><a href="index.php?r=confronto/index&id=12"> - Semi</a></li>
-										  <li class="active"><a href="index.php?r=confronto/index&id=13"> - 3º Lugar</a></li>
-										  <li class="active"><a href="index.php?r=confronto/index&id=9"> - Final</a></li>
+                                       
                             </ul>
 <div class="m-b-md"> <h3 class="m-b-none">Confrontos</h3> </div>
 
@@ -38,8 +43,11 @@
              $(".summary").hide();
               $(".verApostaDiv").hide();
              PreencheApostas();
-            
-        
+             $("#selecionarGrupo").change(function(){
+                var grupo = $(this).val();
+                window.location.href= "index.php?r=confronto/index&id="+grupo;
+            });
+       $("#selecionarGrupo").val(<?php echo $idGrupo?>);
         });
       function PreencheApostas(){
               $.ajax({
@@ -48,7 +56,7 @@
             data:"id=<?php echo Yii::app()->user->getId();?>",
             dataType: "json",
             success: function(response, status) {
-                debugger;
+               
                
 
                 for (var i = 0; response.length > i; i++) {

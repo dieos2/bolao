@@ -375,6 +375,7 @@ class ConfrontoController extends Controller {
 
         $this->render('index', array(
             'dataProvider' => $dataProvider,
+            'idGrupo' => $id,
         ));
     }
 
