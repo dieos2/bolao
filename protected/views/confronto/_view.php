@@ -14,7 +14,7 @@ $date = date_create($data->data);
 }(document, 'script', 'facebook-jssdk'));</script>-->
 <style>
     .progress {
-    height: 65px !important;
+    height: 50px !important;
     margin-bottom: 0px !important;
         height: 20px;
     margin-bottom: 20px;
@@ -31,13 +31,13 @@ $date = date_create($data->data);
     
 </style>
 <section class="panel panel-default">
-    <header class="panel-heading font-bold"><?php echo date_format($date, 'd-m-Y H:i');  $id_user = Yii::app()->user->getId();
+    <header class="panel-heading font-bold" style="text-align: center"><?php echo date_format($date, 'd-m-Y H:i');  $id_user = Yii::app()->user->getId();
                                     $model2 = User::model()->findByPk($id_user);
                                     $model2->username;
                                        if($model2->username == 'diego'){
                                            echo ' - <a href="index.php?r=confronto/update&id='.$data->id.'" class="btn btn-success" >Editar</a>';
                                        }?>  </header>
-                                <div class="panel-body">
+                                <div class="panel-body" style="text-align:center;">
                                     <form id="<?php echo CHtml::encode($data->id) ?>" class="form-inline" role="form" data-validate="parsley">
                                         <div class="" style="width: 30%;display: initial;">
                                             <label>
@@ -77,7 +77,8 @@ $date = date_create($data->data);
 <!--                                    <div class="fb-share-button" data-href="http://www.casadogui.com.br/index.php?r=confronto/curtir&id=<?php echo $data->id ?>" data-type="button"></div>-->
                                 </div> 
         <div id="verApostaDiv-<?php echo $data->id ?>" class="panel-body verApostaDiv">
-           
+             <table class="table table-striped">
+								   <tbody>
                 <?php
                $model = new CActiveDataProvider('Aposta', array(
                 'criteria' => array(
@@ -87,11 +88,13 @@ $date = date_create($data->data);
                
        
                 ?>
+				
                 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$model,
 	'itemView'=>'_viewAposta',
                      'enablePagination'=>false,
-)); ?>
+)); ?></tbody>
+				</table>
          </div> 
        <div class="progress">
             <div class="progress-bar progress-bar-success" data-toggle="tooltip" data-original-title="<?php echo ConfrontoController::GetNumeroApostaCasa($data->id) ?>" style="width: <?php echo ConfrontoController::GetPorcentagemApostaCasa($data->id) ?>%">

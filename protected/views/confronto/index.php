@@ -79,10 +79,10 @@
            data: "id=0",
             dataType: "json",
             success: function(response, status) {
-                debugger;
+              
               
                 for (var i = 0; response.length > i; i++) {
-                     debugger;
+                    
                      var divAposta = jQuery('.divApostas_'+response[i][0]);
                      if(divAposta.length > 0){
                     jQuery('.divApostas_'+response[i][0]).find('input[id=placar_casa]').val(response[i][4]);
@@ -116,7 +116,7 @@
         });
         }
          jQuery('.verAposta').click(function (){
-             debugger;AtualizeApostas();
+            AtualizeApostas();
              var id =  jQuery(this).attr('data-id');
              var teste= jQuery('#verApostaDiv-'+id).attr('style');
              if(jQuery('#verApostaDiv-'+id).attr('style') == 'display: block;'){
@@ -129,7 +129,7 @@
          });
         jQuery('.btn-success').click(function (){
             
-            debugger;
+           
             var id = jQuery(this).attr('data-idConfronto');
             var id_confronto = jQuery('#'+id).find('input[id=id_confronto]').val();
             var placar_casa =jQuery('#'+id).find('input[id=placar_casa]').val();
@@ -143,7 +143,7 @@
                         'type'=>'post',
                         'data'=>'js:{id_confronto:id_confronto,placar_casa:placar_casa,placar_visitante:placar_visitante,id_user:id_user,data:data}',
                         'success'=>"function(string){
-                            debugger;
+                          
                             jQuery('#btn-'+id).html('ok');
                             AtualizeApostas();
                             }"
