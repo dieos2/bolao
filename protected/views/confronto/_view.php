@@ -12,6 +12,28 @@ $date = date_create($data->data);
   js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&appId=120052838155369&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>-->
+<style>
+    .progress {
+    height: 65px !important;
+    margin-bottom: 0px !important;
+        height: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 0px !important;
+    -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+      background-image: url(images/barratorcida.png);
+    background-repeat: no-repeat;
+    background-size: 168% 100%;
+    }
+    .progress-bar{
+        background-image: url(images/barratorcida.png);
+    background-repeat: no-repeat;
+    background-size: 168% 100%;
+    }
+    
+</style>
 <section class="panel panel-default">
     <header class="panel-heading font-bold"><?php echo date_format($date, 'd-m-Y H:i');  $id_user = Yii::app()->user->getId();
                                     $model2 = User::model()->findByPk($id_user);
@@ -75,7 +97,7 @@ $date = date_create($data->data);
                      'enablePagination'=>false,
 )); ?>
          </div> 
-       <div class="progress m-t-sm">
+       <div class="progress">
             <div class="progress-bar progress-bar-success" data-toggle="tooltip" data-original-title="<?php echo ConfrontoController::GetNumeroApostaCasa($data->id) ?>" style="width: <?php echo ConfrontoController::GetPorcentagemApostaCasa($data->id) ?>%"></div>
             <div class="progress-bar progress-bar-primary" data-toggle="tooltip" data-original-title="<?php echo ConfrontoController::GetNumeroApostaVisitante($data->id) ?>" style="width: <?php echo ConfrontoController::GetPorcentagemApostaVisitante($data->id) ?>%"></div> 
        </di> 
