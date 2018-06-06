@@ -1,7 +1,6 @@
 {
-  "gcm_sender_id": "103953800507"
-  "short_name": "Maps",
-  "name": "Google Maps",
+  "short_name": "BCO",
+  "name": "Bolao da Copa",
   "icons": [
     {
       "src": "/images/icons-192.png",
@@ -14,9 +13,12 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/maps/?source=pwa",
+  "start_url": ".",
   "background_color": "#3367D6",
   "display": "standalone",
   "scope": "/maps/",
-  "theme_color": "#3367D6"
+  "theme_color": "#3367D6",
+
+  "gcm_sender_id": "103953800507"
+ 
 }
