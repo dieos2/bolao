@@ -23,14 +23,10 @@ $date = date_create($data->data);
     border-radius: 0px !important;
     -webkit-box-shadow: none !important;
      box-shadow: none !important;
-      background-image: url(images/barratorcida.png);
-    background-repeat: no-repeat;
-    background-size: 168% 100%;
+     
     }
     .progress-bar{
-        background-image: url(images/barratorcida.png);
-    background-repeat: no-repeat;
-    background-size: 168% 100%;
+     
     }
     
 </style>
@@ -98,8 +94,12 @@ $date = date_create($data->data);
 )); ?>
          </div> 
        <div class="progress">
-            <div class="progress-bar progress-bar-success" data-toggle="tooltip" data-original-title="<?php echo ConfrontoController::GetNumeroApostaCasa($data->id) ?>" style="width: <?php echo ConfrontoController::GetPorcentagemApostaCasa($data->id) ?>%"></div>
-            <div class="progress-bar progress-bar-primary" data-toggle="tooltip" data-original-title="<?php echo ConfrontoController::GetNumeroApostaVisitante($data->id) ?>" style="width: <?php echo ConfrontoController::GetPorcentagemApostaVisitante($data->id) ?>%"></div> 
+            <div class="progress-bar progress-bar-success" data-toggle="tooltip" data-original-title="<?php echo ConfrontoController::GetNumeroApostaCasa($data->id) ?>" style="width: <?php echo ConfrontoController::GetPorcentagemApostaCasa($data->id) ?>%">
+                <img src="images/barratorcida.png" style=" height: 100%"/>
+            </div>
+            <div class="progress-bar progress-bar-primary" data-toggle="tooltip" data-original-title="<?php echo ConfrontoController::GetNumeroApostaVisitante($data->id) ?>" style="width: <?php echo ConfrontoController::GetPorcentagemApostaVisitante($data->id) ?>%">
+             <img src="images/barratorcida.png" style=" height: 100%"/>
+            </div> 
        </di> 
                             </section>
 	
