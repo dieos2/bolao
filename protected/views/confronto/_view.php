@@ -35,22 +35,7 @@ $date = date_create($data->data);
     
 </style>
 <section class="panel panel-default">
-<select id="selecionarGrupo" class="form-control m-b">
-             <option value="0">Todos</option>
-             <option value="1">A</option>
-             <option value="2">B</option>
-             <option value="3">C</option>
-             <option value="4">D</option>
-             <option value="5">E</option>
-             <option value="6">F</option>
-             <option value="7">G</option>
-             <option value="8">H</option>
-             <option value="10">8ª</option>
-             <option value="11">4ª</option>
-             <option value="12">Semi Final</option>
-             <option value="13">3º Lugar</option>
-             <option value="9">Final</option>
-         </select>
+
     <header class="panel-heading font-bold" style="text-align: center"><?php echo date_format($date, 'd-m-Y H:i');  $id_user = Yii::app()->user->getId();
                                     $model2 = User::model()->findByPk($id_user);
                                     $model2->username;
