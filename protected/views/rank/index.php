@@ -26,22 +26,31 @@
                                                             <div class="h3 m-t-xs m-b-xs text-white"><?php
                                     $id_user = Yii::app()->user->getId();
                                     $model2 = User::model()->findByPk($id_user);
-                                    echo $model2->username?> <i class="fa fa-circle text-white pull-right text-xs m-t-sm"></i></div>
-                                                            <small class="text-muted"></small> </div>
+                                    echo strtoupper($model2->username)?><span> <i class="fa fa-user text-white pull-right text-xs m-t-sm"></i></span></div>
+                                                            <small class="text-muted"><?php echo RankController::actionGetTotal(Yii::app()->user->getId())?>º Colocado </small> </div>
                                                     </div>
                                                 </header>
                                               <div class="list-group no-radius alt">
+                                                  <table class="table ">
+                                                      <thead>
+                                                          <tr>
+                                                                                                                            <th>Resultado</th>
+                                                                 <th>Aposta</th>
+<th>Pontos</th>
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
-        )); ?></div>
-                        <div class="list-group no-radius alt"><a class="list-group-item" href="#">
-                                <span class="badge bg-success"><?php echo RankController::actionGetTotal($id_user); ?></span>
-        <i class="fa fa-tachometer"></i>
-        Total
-       </a>
-
-</div>             
+        )); ?>
+                                                          <tr>
+                                                              <td colspan="2">
+                                                                  <i class="fa fa-tachometer"></i> Total</td>
+                                                              <td><a class="" href="#">
+                                <span class="badge bg-success"><?php echo RankController::actionGetTotal($id_user); ?></span></td>
+                                                          </tr></tbody> </table></div>
+                       
                                             </section>
                                          
                                         </div>
@@ -71,7 +80,7 @@
                                     echo $model2->username?>.jpg" class="img-circle">
                                                         </div>
                                                     </div>
-                                                    <div class="h4 m-t m-b-xs"><?php echo $model2->username?></div>
+                                                    <div class="h4 m-t m-b-xs"><?php echo strtoupper($model2->username)?></div>
                                                     <small class="text-muted m-b">Art director</small> </div>
                                             </div>
                                         </div>

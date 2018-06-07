@@ -3,24 +3,37 @@
 /* @var $data Rank */
 ?>
 
+<style>
+    .panel .table td, .panel .table th {
+    padding: 6px 10px !important;}
+    </style>
 
 
-<a class="list-group-item" href="#">
-        <span class="badge bg-success"><?php echo CHtml::encode($data->idPonto->pontos); ?></span>
-        <i class="fa fa-check-square icon-muted"></i>
-        <?php echo CHtml::encode($data->idAposta->idConfronto->idTimeCasa->nome); ?>
-        <?php echo CHtml::encode($data->idAposta->idConfronto->placar_casa); ?>
-        x 
-        <?php echo CHtml::encode($data->idAposta->idConfronto->placar_visitante); ?>
-        <?php echo CHtml::encode($data->idAposta->idConfronto->idTimeVisitante->nome); ?>
-        <?php if($data->id_ponto == 1)
-            {echo '<i class="fa fa-star icon-muted"></i>';}
-            else if($data->id_ponto == 2){'<i class="fa fa-star-half-o"></i>';}?>
       
-        <?php echo CHtml::encode($data->idAposta->placar_casa); ?>
-        x 
-        <?php echo CHtml::encode($data->idAposta->placar_visitante); ?>
-       </a>
-
+<tr><td><div style=" float:left" data-toggle="tooltip" data-original-title="<?php echo CHtml::encode($data->idAposta->idConfronto->idTimeCasa->nome); ?>"><img src="images/<?php echo CHtml::encode($data->idAposta->idConfronto->idTimeCasa->escudo)?>" />
+        <?php echo CHtml::encode($data->idAposta->idConfronto->placar_casa); ?></div>
+        <div style="float: left;
+    font-size: 98%;
+    font-weight: bold;
+    padding: 0 10px;">x</div>
+       
+       <div style=" float:left" data-toggle="tooltip" data-original-title="<?php echo CHtml::encode($data->idAposta->idConfronto->idTimeVisitante->nome); ?>"> <?php echo CHtml::encode($data->idAposta->idConfronto->placar_visitante); ?>
+           <img src="images/<?php echo CHtml::encode($data->idAposta->idConfronto->idTimeVisitante->escudo)?>" />
+       </div> </td>
+            <td>
+      <div style=" float:left" data-toggle="tooltip" data-original-title="<?php echo CHtml::encode($data->idAposta->idConfronto->idTimeCasa->nome); ?>"><img src="images/<?php echo CHtml::encode($data->idAposta->idConfronto->idTimeCasa->escudo)?>" />
+        <?php echo CHtml::encode($data->idAposta->placar_casa); ?></div>
+        <div style="float: left;
+    font-size: 98%;
+    font-weight: bold;
+    padding: 0 10px;">x</div> 
+         <div style=" float:left" data-toggle="tooltip" data-original-title="<?php echo CHtml::encode($data->idAposta->idConfronto->idTimeVisitante->nome); ?>">
+ <?php echo CHtml::encode($data->idAposta->placar_visitante); ?>
+     <img src="images/<?php echo CHtml::encode($data->idAposta->idConfronto->idTimeVisitante->escudo)?>" />
+         </div>
+            </td>
+            <td>  <span class="badge bg-success"><?php echo CHtml::encode($data->idPonto->pontos); ?></span>
+       </td>
+        </tr>
                          
 
