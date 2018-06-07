@@ -7,6 +7,16 @@
         <title>Bolão da Copa Online | Web Application</title>
         <meta name="description" content="Sistema de Bolão para os frescos não pertubarem mais" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120532595-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120532595-1');
+</script>
+
         <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
         <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
         <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
