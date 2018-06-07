@@ -186,6 +186,15 @@ messaging.requestPermission().then(function() {
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
                             <section class="w-f scrollable">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- footer -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-6679421319462361"
+     data-ad-slot="6233522089"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
                                 <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
                                     <!-- nav -->
                                     <nav class="nav-primary hidden-xs">
