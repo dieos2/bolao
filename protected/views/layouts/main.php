@@ -176,15 +176,7 @@ messaging.requestPermission().then(function() {
                     <!-- .aside -->
                     <aside class="bg-dark lter aside-md hidden-print" id="nav">
                         <section class="vbox">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- topo -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-6679421319462361"
-     data-ad-slot="5462408038"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
                             <section class="w-f scrollable">
                                 <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
                                     <!-- nav -->
@@ -305,15 +297,7 @@ messaging.requestPermission().then(function() {
                                 </div>
                             </section>
                             <footer class="footer lt hidden-xs b-t b-dark">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- footer -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-6679421319462361"
-     data-ad-slot="6233522089"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
                                 <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-dark btn-icon"> <i class="fa fa-angle-left text"></i>  <i class="fa fa-angle-right text-active"></i> 
                                 </a>
 
@@ -323,9 +307,26 @@ messaging.requestPermission().then(function() {
                     <!-- /.aside -->
                     <section id="content">
                         <section class="vbox">
-                            <section class="scrollable padder">
+                            <section class="scrollable ">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- topo -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-6679421319462361"
+     data-ad-slot="5462408038"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <?php echo $content; ?>
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- footer -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-6679421319462361"
+     data-ad-slot="6233522089"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
                                 <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
                             </section>
                             <aside class="bg-light lter b-l aside-md hide" id="notes">
