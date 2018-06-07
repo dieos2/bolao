@@ -17,11 +17,13 @@
   gtag('config', 'UA-120532595-1');
 </script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- topo -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-6679421319462361"
+     data-ad-slot="5462408038"></ins>
 <script>
-     (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-6679421319462361",
-          enable_page_level_ads: true
-     });
+(adsbygoogle = window.adsbygoogle || []).push({});
 </script>
         <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
         <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
