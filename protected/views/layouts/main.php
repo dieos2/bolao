@@ -16,15 +16,7 @@
 
   gtag('config', 'UA-120532595-1');
 </script>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- topo -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:468px;height:60px"
-     data-ad-client="ca-pub-6679421319462361"
-     data-ad-slot="5462408038"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
         <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
         <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
         <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -184,7 +176,15 @@ messaging.requestPermission().then(function() {
                     <!-- .aside -->
                     <aside class="bg-dark lter aside-md hidden-print" id="nav">
                         <section class="vbox">
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- topo -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:468px;height:60px"
+     data-ad-client="ca-pub-6679421319462361"
+     data-ad-slot="5462408038"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
                             <section class="w-f scrollable">
                                 <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
                                     <!-- nav -->
