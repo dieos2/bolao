@@ -73,7 +73,18 @@ $date = date_create($data->data);
                                        } 
                                        
                                    ?> 
-                                       <a id="verAposta-<?php echo $data->id ?>" data-id="<?php echo $data->id ?>" class="btn verAposta btn-info"><i class="fa fa-binoculars" aria-hidden="true"></i> Ver Apostas</a> 
+								     <?php
+               $model = new CActiveDataProvider('Aposta', array(
+                'criteria' => array(
+                    'condition' => "id_confronto = $data->id",
+                    'order' => 'data',
+            )));
+               
+				$CriteriaApostas = new CDbCriteria();
+			    $CriteriaApostas->condition = "id_confronto = $data->id";
+				$apostaTotais = Aposta::model()->findAll($CriteriaApostas);
+                ?>
+                                       <a id="verAposta-<?php echo $data->id ?>" data-id="<?php echo $data->id ?>" class="btn verAposta btn-info"><i class="fa fa-binoculars" aria-hidden="true"></i> Ver Apostas <strong>(<?php echo count ($apostaTotais); ?>)</strong></a> 
                                        <input type="hidden" id="id_confronto" name="id_confronto" value="<?php echo $data->id ?>" />
                                        <input type="hidden" id="id_user" name="id_user" value="<?php echo Yii::app()->user->getId(); ?>" />
                                        <input type="hidden" id="data" name="data" value="<?php echo date("Y-m-d H:i:s") ?>" />
@@ -84,15 +95,7 @@ $date = date_create($data->data);
         <div id="verApostaDiv-<?php echo $data->id ?>" class="panel-body verApostaDiv">
              <table class="table table-striped">
 								   <tbody>
-                <?php
-               $model = new CActiveDataProvider('Aposta', array(
-                'criteria' => array(
-                    'condition' => "id_confronto = $data->id",
-                    'order' => 'data',
-            )));
-               
-       
-                ?>
+              
 				
                 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$model,
