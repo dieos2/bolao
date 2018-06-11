@@ -65,9 +65,17 @@ $date = date_create($data->data);
                                                 echo '<span class="label bg-dark">'. CHtml::encode($data->placar_visitante).'</span>'; } ?></label>
                                         </div>
                                         <div class="col-md-12">  <?php 
-                                     
-                                       if(date("Y-m-d H:i:s") > date_format($date,'Y-m-d 15:00') ){
-                                           echo '<a class="btn btn-default" disabled="disabled" ><i class="fa fa-check-circle" aria-hidden="true"></i> Apostar</a>';
+                                     $data1 = date("Y-m-d H:i:s");
+$data2 = date_format($date,'Y-m-d H:i:s ');
+// converte as datas para o formato timestamp
+$d1 = strtotime($data1); 
+$d2 = strtotime($data2);
+// verifica a diferença em segundos entre as duas datas e divide pelo número de segundos que um dia possui
+$dataFinal = ($d2 - $d1 ) / 60;
+// caso a data 2 seja menor que a data 1
+
+                                       if($dataFinal < 60 ){
+                                           echo '<a class="btn btn-default" disabled="disabled" ><i class="fa fa-check-circle" aria-hidden="true"></i> Apostar</a>';   
                                        }else{
                                           echo '<a  id="btn-'.$data->id.'" data-idConfronto="'.$data->id.'" data-idGrupo="'.$data->id_grupo.'" class="btn btn-success"><i class="fa fa-check-circle" aria-hidden="true"></i> Apostar</a>';
                                        } 

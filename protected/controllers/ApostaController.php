@@ -104,8 +104,23 @@ class ApostaController extends Controller {
               $model->placar_casa = $_POST['placar_casa'];
                $model->data = $_POST['data'];
                 $model->id_user = $_POST['id_user'];
-           } $model->save();
-            echo json_encode($model);
+           } 
+		   $modelConfronto = Confronto::model()->findByPk($model->id_confronto);
+                                   $data1 = date("Y-m-d H:i:s");
+								   $date = date_create($modelConfronto->data);
+$data2 = date_format($date,'Y-m-d H:i:s ');
+// converte as datas para o formato timestamp
+$d1 = strtotime($data1); 
+$d2 = strtotime($data2);
+// verifica a diferença em segundos entre as duas datas e divide pelo número de segundos que um dia possui
+$dataFinal = ($d2 - $d1 ) / 60;
+// caso a data 2 seja menor que a data 1
+
+                                       if($dataFinal > 60 ){		   
+		   $model->save();
+									   }
+
+		   echo json_encode($model);
 
             Yii::app()->end();
      
