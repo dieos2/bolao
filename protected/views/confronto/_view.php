@@ -41,7 +41,8 @@ $date = date_create($data->data);
                                     $model2->username;
                                        if($model2->username == 'diego'){
                                            echo ' - <a href="index.php?r=confronto/update&id='.$data->id.'" class="btn btn-success" >Editar</a>';
-                                       }?>  </header>
+                                           }?> <p id="demo_<?php echo $data->id?>" class="contdown" data-id="<?php echo $data->id?>" data-data="<?php echo $data->data?>"></p>
+  </header>
                                 <div class="panel-body" style="text-align:center;">
                                     <form id="<?php echo CHtml::encode($data->id) ?>" class="form-inline" role="form" data-validate="parsley">
                                         <div class="" style="width: 30%;display: initial;">
