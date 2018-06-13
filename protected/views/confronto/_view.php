@@ -87,7 +87,10 @@ $dataFinal = ($d2 - $d1 ) / 60;
                 'criteria' => array(
                     'condition' => "id_confronto = $data->id",
                     'order' => 'data',
-            )));
+                    
+            ),'pagination' => array(
+                    'pageSize' => 50,
+                ),));
                
 				$CriteriaApostas = new CDbCriteria();
 			    $CriteriaApostas->condition = "id_confronto = $data->id";

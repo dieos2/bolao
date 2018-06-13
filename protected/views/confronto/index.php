@@ -97,22 +97,7 @@ font-size: 150%;
                     jQuery('.divApostas_'+response[i][0]).find('input[id=placar_visitante]').val(response[i][5]);
                 }else
               {
-                  jQuery('#verApostaDiv-'+response[i][1]).find('div[class=items]').append('<div class="divApostas_'+response[i][0]+'" style="padding: 0 0px 0px 2.5%;margin: -30px 0 12px  0; text-align: right;width: 162px;">'
-                                       + '<div class="" style="width: 30%;display: initial;">'
-                                           +' <label>'+response[i][6]+'</label>'
-                                       +' </div> <div class="form-group" style="width: 26px; display: inline-block;">'
-                                           
-                                            +'<input class="c26" type="text" data-notblank="true" data-maxlength="2" id="placar_casa" name="placar_casa" style="width: 100%;text-align: center; border: none" value="'+response[i][4]+'" readonly="readonly">'
-                                      +  '</div> x'
-                                       + '<div class="form-group" style="width: 26px; display: inline-block;">'
-                                           
-                                           + '<input class="v26" type="text" data-notblank="true" data-maxlength="2" id="placar_visitante" name="placar_visitante" style="width: 100%;text-align: center; border: none " value="'+response[i][5]+'" readonly="readonly">'
-                                        
-                                       +' </div> <div class="" style="width: 30%;display: initial;">'
-                                           + '<label>'
-                                              
-                                       +' </label></div>'
- +'</div>');
+                  
                  
               }
                 }
@@ -161,7 +146,7 @@ var x = setInterval(function() {
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo_"+id).innerHTML = "EXPIRED";
+    document.getElementById("demo_"+id).innerHTML = "FECHADO";
   }
 }, 1000);
 }
