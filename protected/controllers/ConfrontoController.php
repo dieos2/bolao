@@ -372,7 +372,7 @@ class ConfrontoController extends Controller {
                     'pageSize' => 50,
                 ),));
         }
-
+ 
         $this->render('index', array(
             'dataProvider' => $dataProvider,
             'idGrupo' => $id,
