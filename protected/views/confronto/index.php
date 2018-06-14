@@ -8,7 +8,9 @@
 ?><style>
 .contdown{
 font-size: 150%;
-}</style> <section class="vbox">
+}
+.red{
+color: red;}</style> <section class="vbox">
                             <section class="scrollable">
                                 
  
@@ -142,7 +144,9 @@ var x = setInterval(function() {
   // Display the result in the element with id="demo"
   document.getElementById("demo_"+id).innerHTML = days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
-
+if(days == 0 && hours < 2){
+	 document.getElementById("demo_"+id).classList.add('red');
+}
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(x);
