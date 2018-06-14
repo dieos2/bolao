@@ -365,7 +365,7 @@ class ConfrontoController extends Controller {
         } else {
             $dataProvider = new CActiveDataProvider('Confronto', array(
                 'criteria' => array(
-                    'condition' => 'data > "' . date("Y-m-d 12:00:00") . '"',
+                    'condition' => 'data > "' . date("Y-m-d 00:00:00") . '"',
                     'order' => 'data',
                 ),
                 'pagination' => array(
