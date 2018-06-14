@@ -102,7 +102,14 @@ class ConfrontoController extends Controller {
             $modelAposta = Aposta::model()->findAll($Criteria);
 
             foreach ($modelAposta as $item) {
+				  $Criteria = new CDbCriteria();
+           $Criteria->condition = "id_aposta = $item->id and id_user = $item->id_user";
+           $apostaExiste = Rank::model()->find($Criteria);
+          	if($apostaExiste != null){
+				$apostaExiste->delete();
+			}
                 if ($item->placar_casa == $model->placar_casa && $item->placar_visitante == $model->placar_visitante) {
+					
                     $modelRank = new Rank;
                     $modelRank->id_user = $item->id_user;
                     $modelRank->data = date('Y-m-d H:i:s');
