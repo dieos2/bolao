@@ -124,7 +124,7 @@ color: red;}</style> <section class="vbox">
          });
          function MontaContDown(data, id){
    
-var countDownDate = new Date(data).getTime();
+var countDownDate = new Date(data).getTime() - (1*60*60*1000);
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -133,7 +133,7 @@ var x = setInterval(function() {
   var now = new Date().getTime();
 
   // Find the distance between now an the count down date
-  var distance = countDownDate - now;
+  var distance = (countDownDate - now);
 
   // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -147,10 +147,12 @@ var x = setInterval(function() {
 if(days == 0 && hours < 2){
 	 document.getElementById("demo_"+id).classList.add('red');
 }
+debugger;
   // If the count down is finished, write some text 
-  if (distance < 0) {
+  if (distance <= 0) {
     clearInterval(x);
     document.getElementById("demo_"+id).innerHTML = "FECHADO";
+	 document.getElementById("demo_"+id).classList.add('red');
   }
 }, 1000);
 }
