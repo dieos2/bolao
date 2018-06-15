@@ -38,11 +38,11 @@
                                 <img src="images/'.$item["nome"].'.jpg" />
                             </span> ' . strtoupper($item["nome"]).'</td>';
                  
-                   echo '<td>'.$item["pontos"].'</td>';
-                   echo '<td class = "text-success">';
-                    echo   $item["acertos"].'</td>';
-                     echo '<td class = "text-warning">';
-                    echo   $item["resultados"].'</td>';
+                   echo '<td><strong>'.$item["pontos"].'</strong></td>';
+                   echo '<td class = "text-success"><strong>';
+                    echo   $item["acertos"].'</strong></td>';
+                     echo '<td class = "text-info"><strong>';
+                    echo   $item["resultados"].'</strong></td>';
                     
                         echo '</tr>';
                 $conta++;
