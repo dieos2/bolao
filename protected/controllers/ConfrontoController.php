@@ -209,6 +209,40 @@ class ConfrontoController extends Controller {
                     $modelRank->save();
                 }
             }
+            
+            			  $Criteria = new CDbCriteria();
+           
+           $existe = Posicao::model()->find($Criteria);
+          	if($existe == null){
+                     $Criteria = new CDbCriteria();
+        $Criteria->order = "id";
+                    $usuarios = User::model()->findAll($Criteria);
+                    foreach ($usuarios as $item) {
+                        $posicao = new Posicao();
+                        $posicao->id_user = $item->id;
+                       
+                        Yii::import('application.controllers.RankController');
+                        $posicao->antiga = RankController::actionGetPosicao($item->id);
+                        $posicao->atual = RankController::actionGetPosicao($item->id);
+                        $posicao->save();
+                    }
+                }else
+                {
+                     $Criteria = new CDbCriteria();
+        $Criteria->order = "id";
+                    $usuarios = User::model()->findAll($Criteria);
+                    foreach ($usuarios as $item) {
+                        $Criteria = new CDbCriteria();
+           $Criteria->condition = "id_user = $item->id";
+                        $posicao = Posicao::model()->find($Criteria);
+                        $posicao->id_user = $item->id;
+                       
+                        Yii::import('application.controllers.RankController');
+                        $posicao->antiga = $posicao->atual;
+                        $posicao->atual = RankController::actionGetPosicao($item->id);
+                        $posicao->save();
+                    }
+                }
             if ($model->save())
                 $this->redirect(array('view', 'id' => $model->id));
         }
