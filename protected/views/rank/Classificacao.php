@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Bolão da Copa Online | Web Application</title>
-    <meta name="description" content="Sistema de Bolão para os frescos não pertubarem mais" />
+    <meta name="description" content="Sistema de Bolão da COPA" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
     <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
