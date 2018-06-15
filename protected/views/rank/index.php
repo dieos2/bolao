@@ -27,7 +27,7 @@
                                     $id_user = Yii::app()->user->getId();
                                     $model2 = User::model()->findByPk($id_user);
                                     echo strtoupper($model2->username)?><span> <i class="fa fa-user text-white pull-right text-xs m-t-sm"></i></span></div>
-                                                            <small class="text-muted"><?php echo RankController::actionGetTotal(Yii::app()->user->getId())?>º Colocado </small> </div>
+                                                            <small class="text-muted"><?php echo RankController::actionGetPosicao(Yii::app()->user->getId())?>º Colocado </small> </div>
                                                     </div>
                                                 </header>
                                               <div class="list-group no-radius alt">

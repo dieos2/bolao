@@ -127,7 +127,7 @@ class RankController extends Controller {
         ));
     }
 
-    public function aasort(&$array, $key) {
+    public static function aasort(&$array, $key) {
         $sorter = array();
         $ret = array();
 
@@ -142,7 +142,7 @@ class RankController extends Controller {
         return $array;
     }
 
-    public function ordenarRank(&$array, $key, $desempate) {
+    public static function ordenarRank(&$array, $key, $desempate) {
         $sorter = array();
          $ret = array();
         foreach ($array as $ii => $row) {
@@ -158,13 +158,46 @@ class RankController extends Controller {
         }
       return $ret;
     }
+    public function actionGetPosicaoAtual($id) {
+       
+       
+        $Criteria = new CDbCriteria();
+        $Criteria->condition = "id_user = $id";
 
-    public function actionGetPosicao($id) {
+        $model = Posicao::model()->find($Criteria);
+       
+if($model != null){
+                return $model->atual;
+}else{
+    return RankController::actionGetPosicao($id);
+}
+            
+        
+    }
+    
+    
+public function actionGetPosicaoAntiga($id) {
+       
+       
+        $Criteria = new CDbCriteria();
+        $Criteria->condition = "id_user = $id";
+
+        $model = Posicao::model()->find($Criteria);
+       
+if($model != null){
+                return $model->antiga;
+}else{
+    return RankController::actionGetPosicao($id);
+}
+            
+        
+    }
+    public static function actionGetPosicao($id) {
         $nome = User::model()->findByPk($id)->username;
         $rankLista = array();
         $rankUser = array();
         $Criteria = new CDbCriteria();
-        $Criteria->order = "id";
+        $Criteria->order = "username";
 
         $modelAposta = User::model()->findAll($Criteria);
         $total = 0;
@@ -175,7 +208,7 @@ class RankController extends Controller {
                 , "resultados" => RankController::GetResultados($item->id));
             array_push($rankLista, $rankUser);
         }
-        $rankLista = RankController::aasort($rankLista, 'pontos');
+        $rankLista = RankController::ordenarRank($rankLista, 'pontos', 'acertos');
         $posicao = 0;
         foreach ($rankLista as $item) {
             $posicao = $posicao + 1;
@@ -190,7 +223,7 @@ class RankController extends Controller {
         $rankLista = array();
         $rankUser = array();
         $Criteria = new CDbCriteria();
-        $Criteria->order = "id";
+        $Criteria->order = "username";
 
         $modelAposta = User::model()->findAll($Criteria);
         $total = 0;
@@ -198,7 +231,7 @@ class RankController extends Controller {
         foreach ($modelAposta as $item) {
             $rankUser = array("acertos" => RankController::GetAcertos($item->id)
                 , "nome" => $item->username, "pontos" => RankController::actionGetTotal($item->id)
-                , "resultados" => RankController::GetResultados($item->id));
+                , "resultados" => RankController::GetResultados($item->id),"id"=>$item->id);
             array_push($rankLista, $rankUser);
         }
 
@@ -208,7 +241,7 @@ class RankController extends Controller {
         ));
     }
 
-    public function actionGetTotal($id) {
+    public static function actionGetTotal($id) {
 
         $Criteria = new CDbCriteria();
         $Criteria->condition = "id_user=$id";
@@ -220,7 +253,7 @@ class RankController extends Controller {
         return $total;
     }
 
-    public function GetErros($id) {
+    public static function GetErros($id) {
 
         $Criteria = new CDbCriteria();
         $Criteria->condition = "id_user=$id";
@@ -237,7 +270,7 @@ class RankController extends Controller {
         return $totalAposta - $total;
     }
 
-    public function GetAcertos($id) {
+    public static function GetAcertos($id) {
 
         $Criteria = new CDbCriteria();
         $Criteria->condition = "id_user=$id and id_ponto = 1 or id_user=$id and id_ponto = 3 or id_user=$id and id_ponto = 5 or id_user=$id and id_ponto = 7 or id_user=$id and id_ponto = 9";
@@ -249,7 +282,7 @@ class RankController extends Controller {
         return $total;
     }
 
-    public function GetResultados($id) {
+    public static function GetResultados($id) {
 
         $Criteria = new CDbCriteria();
         $Criteria->condition = "id_user=$id and id_ponto = 2 or id_user=$id and id_ponto = 4 or id_user=$id and id_ponto = 6 or id_user=$id and id_ponto = 8 or id_user=$id and id_ponto = 10";
