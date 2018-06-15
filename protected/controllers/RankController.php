@@ -26,7 +26,7 @@ class RankController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('index', 'view', 'GetRank'),
+                'actions' => array('index', 'view', 'GetRank', 'Classificacao'),
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -240,7 +240,27 @@ if($model != null){
             'dataProvider' => $rankLista,
         ));
     }
+public function actionClassificacao() {
+        $rankLista = array();
+        $rankUser = array();
+        $Criteria = new CDbCriteria();
+        $Criteria->order = "username";
 
+        $modelAposta = User::model()->findAll($Criteria);
+        $total = 0;
+        $id_user = 0;
+        foreach ($modelAposta as $item) {
+            $rankUser = array("acertos" => RankController::GetAcertos($item->id)
+                , "nome" => $item->username, "pontos" => RankController::actionGetTotal($item->id)
+                , "resultados" => RankController::GetResultados($item->id),"id"=>$item->id);
+            array_push($rankLista, $rankUser);
+        }
+
+        $rankLista = RankController::ordenarRank($rankLista, 'pontos', 'acertos');
+        $this->renderPartial('Classificacao', array(
+            'dataProvider' => $rankLista,
+        ));
+    }
     public static function actionGetTotal($id) {
 
         $Criteria = new CDbCriteria();
