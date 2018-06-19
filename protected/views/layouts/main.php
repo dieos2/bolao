@@ -338,6 +338,25 @@ messaging.requestPermission().then(function() {
 
                 </body>
 <script>
+    $(function(){
+        
+        setInterval(function() {
+                   $.ajax({
+            type: "get",
+            url: "index.php?r=site/atualiza",
+           
+            dataType: "json",
+            success: function(response, status) {
+              debugger;          
+              
+             
+            },
+            error: function(response, status) {
+
+            },
+        });
+        },60000);
+    });
  function MandaMensagem(mensagem){
 	 debugger;
 	 messaging.onMessage(function(payload) {
