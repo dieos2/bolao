@@ -339,7 +339,7 @@ messaging.requestPermission().then(function() {
                 </body>
 <script>
     $(function(){
-        
+        debugger;
         setInterval(function() {
                    $.ajax({
             type: "get",

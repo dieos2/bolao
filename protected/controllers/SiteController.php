@@ -94,7 +94,7 @@ class SiteController extends Controller {
               
              $Criteria->condition = "id_time_casa = $timeCasa->id and id_time_visitante = $timeVisitante->id";
             $confronto = Confronto::model()->find($Criteria);
-           
+            if(!($confronto->placar_casa == $resultados->result->goalsHomeTeam && $confronto->placar_visitante ==  $resultados->result->goalsAwayTeam)){
             $confronto->placar_casa = $resultados->result->goalsHomeTeam;
              $confronto->placar_visitante = $resultados->result->goalsAwayTeam;
              if($confronto->placar_casa == $confronto->placar_visitante){
@@ -102,11 +102,13 @@ class SiteController extends Controller {
                  $confronto->vencedor = null;
              }else if($confronto->placar_casa > $confronto->placar_visitante) {
                  $confronto->vencedor = $timeCasa->id;
+				  $confronto->empate = 0;
              }else{
                  $confronto->vencedor = $timeVisitante->id;
+				  $confronto->empate = 0;
              }
-          $confronto->save();
-          $model= $confronto;
+        
+         $model= $confronto;
             
             $Criteria->condition = "id_confronto=$model->id";
             $modelAposta = Aposta::model()->findAll($Criteria);
@@ -253,11 +255,14 @@ class SiteController extends Controller {
                         $posicao->save();
                     }
                 }
-        }
-             
+				 
+		   $confronto->save();
+		}
+		}
             
     
     }
+	
         $this->render('atualiza', array('model' => $fixtures->fixtures));
     }
     /**
