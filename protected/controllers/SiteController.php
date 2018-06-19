@@ -74,7 +74,192 @@ class SiteController extends Controller {
         }
         $this->render('contact', array('model' => $model));
     }
+ public function actionAtualiza() {
+     
+     
+         $uri = 'http://api.football-data.org/v1/fixtures?matchday=1';
+    $reqPrefs['http']['method'] = 'GET';
+    $reqPrefs['http']['header'] = 'X-Auth-Token: a41e5fabfe4e47c3a1c6182573bf8297';
+    $stream_context = stream_context_create($reqPrefs);
+    $response = file_get_contents($uri, false, $stream_context);
+    $fixtures = json_decode($response);
+    foreach ($fixtures->fixtures as $resultados) {
+        if($resultados->status !="TIMED"){
+         $Criteria = new CDbCriteria();
+            $Criteria->condition = "nomeOriginal = '$resultados->homeTeamName'";
+             $timeCasa = Time::model()->find($Criteria);  
+             
+             $Criteria->condition = "nomeOriginal = '$resultados->awayTeamName'";
+             $timeVisitante = Time::model()->find($Criteria);
+              
+             $Criteria->condition = "id_time_casa = $timeCasa->id and id_time_visitante = $timeVisitante->id";
+            $confronto = Confronto::model()->find($Criteria);
+           
+            $confronto->placar_casa = $resultados->result->goalsHomeTeam;
+             $confronto->placar_visitante = $resultados->result->goalsAwayTeam;
+             if($confronto->placar_casa == $confronto->placar_visitante){
+                 $confronto->empate = 1;
+                 $confronto->vencedor = null;
+             }else if($confronto->placar_casa > $confronto->placar_visitante) {
+                 $confronto->vencedor = $timeCasa->id;
+             }else{
+                 $confronto->vencedor = $timeVisitante->id;
+             }
+          $confronto->save();
+          $model= $confronto;
+            
+            $Criteria->condition = "id_confronto=$model->id";
+            $modelAposta = Aposta::model()->findAll($Criteria);
 
+            foreach ($modelAposta as $item) {
+				  $Criteria = new CDbCriteria();
+           $Criteria->condition = "id_aposta = $item->id and id_user = $item->id_user";
+           $apostaExiste = Rank::model()->find($Criteria);
+          	if($apostaExiste != null){
+				$apostaExiste->delete();
+			}
+                if ($item->placar_casa == $model->placar_casa && $item->placar_visitante == $model->placar_visitante) {
+					
+                    $modelRank = new Rank;
+                    $modelRank->id_user = $item->id_user;
+                    $modelRank->data = date('Y-m-d H:i:s');
+                    $modelRank->id_aposta = $item->id;
+                    if($item->idConfronto->id_grupo == 10){
+                    $modelRank->id_ponto = 3;
+                }else if($item->idConfronto->id_grupo == 11)
+                    {
+						$modelRank->id_ponto = 5;
+                    }else if($item->idConfronto->id_grupo == 12)
+                    {
+						$modelRank->id_ponto = 7;
+                    }else if($item->idConfronto->id_grupo == 13)
+                    {
+						$modelRank->id_ponto = 9;
+                    }else if($item->idConfronto->id_grupo == 9)
+                    {
+						$modelRank->id_ponto = 9;
+                    }else
+					{
+					$modelRank->id_ponto = 1;
+					}
+                    $modelRank->save();
+                } else if ($model->vencedor != null) {
+                    if ($item->placar_casa > $item->placar_visitante && $model->vencedor == $model->id_time_casa) {
+                        $modelRank = new Rank;
+                        $modelRank->id_user = $item->id_user;
+                        $modelRank->data = date('Y-m-d H:i:s');
+                        $modelRank->id_aposta = $item->id;
+                          if($item->idConfronto->id_grupo == 10){
+                    $modelRank->id_ponto = 4;
+                }else if($item->idConfronto->id_grupo == 11)
+                    {
+						$modelRank->id_ponto = 6;
+                    }else if($item->idConfronto->id_grupo == 12)
+                    {
+						$modelRank->id_ponto = 8;
+                    }else if($item->idConfronto->id_grupo == 13)
+                    {
+						$modelRank->id_ponto = 10;
+                    }else if($item->idConfronto->id_grupo == 9)
+                    {
+						$modelRank->id_ponto = 10;
+                    }else
+					{
+					$modelRank->id_ponto = 2;
+					}
+                        $modelRank->save();
+                    } else if ($item->placar_casa < $item->placar_visitante && $model->vencedor == $model->id_time_visitante) {
+                        $modelRank = new Rank;
+                        $modelRank->id_user = $item->id_user;
+                        $modelRank->data = date('Y-m-d H:i:s');
+                        $modelRank->id_aposta = $item->id;
+                          if($item->idConfronto->id_grupo == 10){
+                    $modelRank->id_ponto = 4;
+                }else if($item->idConfronto->id_grupo == 11)
+                    {
+						$modelRank->id_ponto = 6;
+                    }else if($item->idConfronto->id_grupo == 12)
+                    {
+						$modelRank->id_ponto = 8;
+                    }else if($item->idConfronto->id_grupo == 13)
+                    {
+						$modelRank->id_ponto = 10;
+                    }else if($item->idConfronto->id_grupo == 9)
+                    {
+						$modelRank->id_ponto = 10;
+                    }else
+					{
+					$modelRank->id_ponto = 2;
+					}
+                        $modelRank->save();
+                    }
+                } else if ($item->placar_casa == $item->placar_visitante && $model->placar_casa == $model->placar_visitante) {
+                    $modelRank = new Rank;
+                    $modelRank->id_user = $item->id_user;
+                    $modelRank->data = date('Y-m-d H:i:s');
+                    $modelRank->id_aposta = $item->id;
+                       if($item->idConfronto->id_grupo == 10){
+                    $modelRank->id_ponto = 4;
+                }else if($item->idConfronto->id_grupo == 11)
+                    {
+						$modelRank->id_ponto = 6;
+                    }else if($item->idConfronto->id_grupo == 12)
+                    {
+						$modelRank->id_ponto = 8;
+                    }else if($item->idConfronto->id_grupo == 13)
+                    {
+						$modelRank->id_ponto = 10;
+                    }else if($item->idConfronto->id_grupo == 9)
+                    {
+						$modelRank->id_ponto = 10;
+                    }else
+					{
+					$modelRank->id_ponto = 2;
+					}
+                    $modelRank->save();
+                }
+            }
+            
+            			  $Criteria = new CDbCriteria();
+           
+           $existe = Posicao::model()->find($Criteria);
+          	if($existe == null){
+                     $Criteria = new CDbCriteria();
+        $Criteria->order = "id";
+                    $usuarios = User::model()->findAll($Criteria);
+                    foreach ($usuarios as $item) {
+                        $posicao = new Posicao();
+                        $posicao->id_user = $item->id;
+                       
+                        Yii::import('application.controllers.RankController');
+                        $posicao->antiga = RankController::actionGetPosicao($item->id);
+                        $posicao->atual = RankController::actionGetPosicao($item->id);
+                        $posicao->save();
+                    }
+                }else
+                {
+                     $Criteria = new CDbCriteria();
+        $Criteria->order = "id";
+                    $usuarios = User::model()->findAll($Criteria);
+                    foreach ($usuarios as $item) {
+                        $Criteria = new CDbCriteria();
+           $Criteria->condition = "id_user = $item->id";
+                        $posicao = Posicao::model()->find($Criteria);
+                        $posicao->id_user = $item->id;
+                       
+                        Yii::import('application.controllers.RankController');
+                        $posicao->antiga = $posicao->atual;
+                        $posicao->atual = RankController::actionGetPosicao($item->id);
+                        $posicao->save();
+                    }
+                }
+        }
+             
+            
+    
+    }
+        $this->render('atualiza', array('model' => $fixtures->fixtures));
+    }
     /**
      * Displays the login page
      */

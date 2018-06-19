@@ -7,6 +7,7 @@
  * @property integer $id
  * @property string $nome
  * @property string $escudo
+ * @property string $nomeOriginal
  *
  * The followings are the available model relations:
  * @property Confronto[] $confrontos
@@ -44,9 +45,10 @@ class Time extends CActiveRecord
 		return array(
 			array('nome, escudo', 'required'),
 			array('nome, escudo', 'length', 'max'=>100),
+			array('nomeOriginal', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, nome, escudo', 'safe', 'on'=>'search'),
+			array('id, nome, escudo, nomeOriginal', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,9 +60,9 @@ class Time extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'confrontos' => array(self::HAS_MANY, 'Confronto', 'vencedor'),
-			'confrontos1' => array(self::HAS_MANY, 'Confronto', 'id_time_casa'),
-			'confrontos2' => array(self::HAS_MANY, 'Confronto', 'id_time_visitante'),
+			'confrontos' => array(self::HAS_MANY, 'Confronto', 'id_time_casa'),
+			'confrontos1' => array(self::HAS_MANY, 'Confronto', 'id_time_visitante'),
+			'confrontos2' => array(self::HAS_MANY, 'Confronto', 'vencedor'),
 			'grupoTimes' => array(self::HAS_MANY, 'GrupoTime', 'id_time'),
 		);
 	}
@@ -74,6 +76,7 @@ class Time extends CActiveRecord
 			'id' => 'ID',
 			'nome' => 'Nome',
 			'escudo' => 'Escudo',
+			'nomeOriginal' => 'Nome Original',
 		);
 	}
 
@@ -91,6 +94,7 @@ class Time extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('nome',$this->nome,true);
 		$criteria->compare('escudo',$this->escudo,true);
+		$criteria->compare('nomeOriginal',$this->nomeOriginal,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
