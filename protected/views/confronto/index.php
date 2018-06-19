@@ -147,7 +147,7 @@ var x = setInterval(function() {
 if(days == 0 && hours < 2){
 	 document.getElementById("demo_"+id).classList.add('red');
 }
-debugger;
+
   // If the count down is finished, write some text 
   if (distance <= 0) {
     clearInterval(x);

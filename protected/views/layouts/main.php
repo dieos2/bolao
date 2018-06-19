@@ -339,7 +339,7 @@ messaging.requestPermission().then(function() {
                 </body>
 <script>
     $(function(){
-        debugger;
+        
         setInterval(function() {
                    $.ajax({
             type: "get",
@@ -347,7 +347,7 @@ messaging.requestPermission().then(function() {
            
             dataType: "json",
             success: function(response, status) {
-              debugger;          
+                        
               
              
             },
@@ -358,7 +358,7 @@ messaging.requestPermission().then(function() {
         },20000);
     });
  function MandaMensagem(mensagem){
-	 debugger;
+	 
 	 messaging.onMessage(function(payload) {
 	 console.log(mensagem, payload);
  });}
