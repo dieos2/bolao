@@ -355,7 +355,7 @@ messaging.requestPermission().then(function() {
 
             },
         });
-        },60000);
+        },20000);
     });
  function MandaMensagem(mensagem){
 	 debugger;
