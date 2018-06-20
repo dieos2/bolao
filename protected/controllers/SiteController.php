@@ -94,7 +94,7 @@ class SiteController extends Controller {
               
              $Criteria->condition = "id_time_casa = $timeCasa->id and id_time_visitante = $timeVisitante->id";
             $confronto = Confronto::model()->find($Criteria);
-            if(!($confronto->placar_casa == $resultados->result->goalsHomeTeam && $confronto->placar_visitante ==  $resultados->result->goalsAwayTeam)){
+            if($confronto->placar_casa != $resultados->result->goalsHomeTeam || $confronto->placar_visitante !=  $resultados->result->goalsAwayTeam){
             $confronto->placar_casa = $resultados->result->goalsHomeTeam;
              $confronto->placar_visitante = $resultados->result->goalsAwayTeam;
              if($confronto->placar_casa == $confronto->placar_visitante){
