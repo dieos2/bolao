@@ -17,6 +17,7 @@
                 
                 $conta = 1;
                 $posicao  = '';
+				$posicaoNoArray = 1;
                 foreach ($dataProvider as $item) {
                    $posicaoAtual = RankController::actionGetPosicaoAtual($item["id"]);
                    $posicaoAnterior = RankController::actionGetPosicaoAntiga($item["id"]);
@@ -45,8 +46,22 @@
                     echo   $item["resultados"].'</strong></td>';
                     
                         echo '</tr>';
+						$proximo = $posicaoNoArray;
+						$anterior = $posicaoNoArray-2;
+						if($posicaoNoArray < 18){
+						if($conta != 1){
+				if($item["pontos"] != $dataProvider[$proximo]["pontos"] ){
                 $conta++;
-                }?>
+				}
+						}else
+						{
+							 $conta++;
+						}
+						$posicaoNoArray++;
+						}
+                }
+				
+				?>
                 
               
             </tbody> 
