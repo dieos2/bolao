@@ -43,6 +43,7 @@
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
+	 'enablePagination'=>false,
         )); ?>
                                                           <tr>
                                                               <td colspan="2">
