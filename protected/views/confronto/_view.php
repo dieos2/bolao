@@ -109,14 +109,15 @@ $dataFinal = ($d2 - $d1 ) / 60;
 								   <tbody>
               
 				
-                <?php $this->widget('zii.widgets.CListView', array(
+                <?php  if($dataFinal < 60 ){
+                $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$model,
 	
 	'itemView'=>'_viewAposta',
                      'enablePagination'=>false,
 					
 					 
-)); ?></tbody>
+                )); }?></tbody>
 				</table>
          </div> 
        <div class="progress">

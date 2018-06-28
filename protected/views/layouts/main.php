@@ -339,22 +339,9 @@ messaging.requestPermission().then(function() {
                 </body>
 <script>
     $(function(){
-        
+      
         setInterval(function() {
-                   $.ajax({
-            type: "get",
-            url: "index.php?r=site/atualiza",
-           
-            dataType: "json",
-            success: function(response, status) {
-                        
-              
-             
-            },
-            error: function(response, status) {
-
-            },
-        });
+                 
         },20000);
     });
  function MandaMensagem(mensagem){
