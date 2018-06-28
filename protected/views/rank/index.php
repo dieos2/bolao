@@ -43,6 +43,7 @@
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
+	 'enablePagination'=>false,
         )); ?>
                                                           <tr>
                                                               <td colspan="2">
@@ -81,19 +82,19 @@
                                                         </div>
                                                     </div>
                                                     <div class="h4 m-t m-b-xs"><?php echo strtoupper($model2->username)?></div>
-                                                    <small class="text-muted m-b">Art director</small> </div>
+                                                    <small class="text-muted m-b"><?php echo RankController::actionGetPosicao(Yii::app()->user->getId())?>º Colocado </small> </small> </div>
                                             </div>
                                         </div>
                                         <footer class="panel-footer bg-info text-center">
                                             <div class="row pull-out">
                                                 <div class="col-xs-4">
-                                                    <div class="padder-v"><span class="m-b-xs h3 block text-white">245</span> <small class="text-muted">Followers</small> </div>
+                                                    <div class="padder-v"><span class="m-b-xs h3 block text-white"><?php echo RankController::GetAcertos($id_user) ?></span> <small class="text-muted">Exatos</small> </div>
                                                 </div>
                                                 <div class="col-xs-4 dk">
-                                                    <div class="padder-v"><span class="m-b-xs h3 block text-white">55</span> <small class="text-muted">Following</small> </div>
+                                                    <div class="padder-v"><span class="m-b-xs h3 block text-white"><?php echo RankController::GetResultados($id_user) ?></span> <small class="text-muted">Resultados</small> </div>
                                                 </div>
                                                 <div class="col-xs-4">
-                                                    <div class="padder-v"><span class="m-b-xs h3 block text-white">2,035</span> <small class="text-muted">Tweets</small> </div>
+                                                    <div class="padder-v"><span class="m-b-xs h3 block text-white"><?php echo RankController::GetErros($id_user) ?></span> <small class="text-muted">Erros</small> </div>
                                                 </div>
                                             </div>
                                         </footer>

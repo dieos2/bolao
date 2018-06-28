@@ -401,7 +401,7 @@ class ConfrontoController extends Controller {
                     'order' => 'data',
                 ),
                 'pagination' => array(
-                    'pageSize' => 50,
+                    'pageSize' => 150,
                 ),));
         } else {
             $dataProvider = new CActiveDataProvider('Confronto', array(
@@ -410,7 +410,7 @@ class ConfrontoController extends Controller {
                     'order' => 'data',
                 ),
                 'pagination' => array(
-                    'pageSize' => 50,
+                    'pageSize' => 150,
                 ),));
         }
  
