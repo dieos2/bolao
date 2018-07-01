@@ -212,7 +212,7 @@ messaging.requestPermission().then(function() {
                                                 </a>
                                             </li>
                                               <li class="">
-                                                <a href="index.php?r=confronto/index&id=11" class="active">
+                                                <a href="index.php?r=confronto/index&id=14" class="active">
                                                     <i class="fa fa-columns icon">
                                                         <b class="bg-warning"></b>
                                                     </i><span>Quartas</span>
