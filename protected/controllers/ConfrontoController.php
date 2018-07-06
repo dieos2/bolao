@@ -116,7 +116,7 @@ class ConfrontoController extends Controller {
                     $modelRank->id_aposta = $item->id;
                     if($item->idConfronto->id_grupo == 10){
                     $modelRank->id_ponto = 3;
-                }else if($item->idConfronto->id_grupo == 11)
+                }else if($item->idConfronto->id_grupo == 14)
                     {
 						$modelRank->id_ponto = 5;
                     }else if($item->idConfronto->id_grupo == 12)
@@ -125,7 +125,7 @@ class ConfrontoController extends Controller {
                     }else if($item->idConfronto->id_grupo == 13)
                     {
 						$modelRank->id_ponto = 9;
-                    }else if($item->idConfronto->id_grupo == 9)
+                    }else if($item->idConfronto->id_grupo == 11)
                     {
 						$modelRank->id_ponto = 9;
                     }else
@@ -150,7 +150,7 @@ class ConfrontoController extends Controller {
                     }else if($item->idConfronto->id_grupo == 13)
                     {
 						$modelRank->id_ponto = 10;
-                    }else if($item->idConfronto->id_grupo == 9)
+                    }else if($item->idConfronto->id_grupo == 11)
                     {
 						$modelRank->id_ponto = 10;
                     }else
@@ -165,7 +165,7 @@ class ConfrontoController extends Controller {
                         $modelRank->id_aposta = $item->id;
                           if($item->idConfronto->id_grupo == 10){
                     $modelRank->id_ponto = 4;
-                }else if($item->idConfronto->id_grupo == 11)
+                }else if($item->idConfronto->id_grupo == 14)
                     {
 						$modelRank->id_ponto = 6;
                     }else if($item->idConfronto->id_grupo == 12)
@@ -174,7 +174,7 @@ class ConfrontoController extends Controller {
                     }else if($item->idConfronto->id_grupo == 13)
                     {
 						$modelRank->id_ponto = 10;
-                    }else if($item->idConfronto->id_grupo == 9)
+                    }else if($item->idConfronto->id_grupo == 11)
                     {
 						$modelRank->id_ponto = 10;
                     }else
@@ -190,7 +190,7 @@ class ConfrontoController extends Controller {
                     $modelRank->id_aposta = $item->id;
                        if($item->idConfronto->id_grupo == 10){
                     $modelRank->id_ponto = 4;
-                }else if($item->idConfronto->id_grupo == 11)
+                }else if($item->idConfronto->id_grupo == 14)
                     {
 						$modelRank->id_ponto = 6;
                     }else if($item->idConfronto->id_grupo == 12)
@@ -199,7 +199,7 @@ class ConfrontoController extends Controller {
                     }else if($item->idConfronto->id_grupo == 13)
                     {
 						$modelRank->id_ponto = 10;
-                    }else if($item->idConfronto->id_grupo == 9)
+                    }else if($item->idConfronto->id_grupo == 11)
                     {
 						$modelRank->id_ponto = 10;
                     }else
