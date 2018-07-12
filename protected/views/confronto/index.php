@@ -34,7 +34,7 @@ color: red;}</style> <section class="vbox">
              <option value="14">4ª</option>
              <option value="12">Semi Final</option>
              <option value="13">3º Lugar</option>
-             <option value="9">Final</option>
+             <option value="11">Final</option>
          </select>
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
