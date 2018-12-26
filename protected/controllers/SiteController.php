@@ -1,4 +1,7 @@
 <?php
+require  '/vendor/autoload.php';
+use Jumbojett\OpenIDConnectClient;
+
 
 class SiteController extends Controller {
 
@@ -270,13 +273,26 @@ class SiteController extends Controller {
      */
     public function actionLogin() {
         $model = new LoginForm;
+$oidc = new OpenIDConnectClient(
+    'https://redeid.net.br/ids/',
+    'bolao',
+    'bolao'
+);
+$oidc->setVerifyHost(false);
+$oidc->setVerifyPeer(false);
+$oidc->authenticate();
 
+$id = $oidc->requestUserInfo('sub');
+        //busca rede para
+        $uri = 'http://redepara.com.br:8019/usuarios/'.$id;
+    $reqPrefs['http']['method'] = 'GET';
+    $reqPrefs['http']['header'] = 'X-Auth-Token: a41e5fabfe4e47c3a1c6182573bf8297';
+    $stream_context = stream_context_create($reqPrefs);
+    $response = file_get_contents($uri, false, $stream_context);
+    $usuarioRede = json_decode($response);
+	
         // if it is ajax validation request
-        if (isset($_POST['ajax']) && $_POST['ajax'] === 'login-form') {
-            echo CActiveForm::validate($model);
-            Yii::app()->end();
-        }
-
+     
         // collect user input data
         if (isset($_POST['LoginForm'])) {
             $model->attributes = $_POST['LoginForm'];
