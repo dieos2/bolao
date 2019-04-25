@@ -120,7 +120,10 @@ class RankController extends Controller {
                 'criteria' => array(
                     'condition' => "id_user = $id",
                     'order' => 'data',
-            )));
+					
+            ), 'pagination' => array(
+                    'pageSize' => 150,
+                ),));
         }
         $this->render('index', array(
             'dataProvider' => $dataProvider,
