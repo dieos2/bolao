@@ -296,10 +296,10 @@ $id = $oidc->requestUserInfo('sub');
         // collect user input data
         if (isset($_POST['LoginForm'])) {
             $model->attributes = $_POST['LoginForm'];
-            // validate user input and redirect to the previous page if valid
+          //   validate user input and redirect to the previous page if valid
             if ($model->validate() && $model->login()) {
-                $id_user = Yii::app()->user->getId();
-                $model = User::model()->findByPk($id_user);
+               $id_user = Yii::app()->user->getId();
+               $model = User::model()->findByPk($id_user);
                 $sen = $model->senha;
                 if (!$sen) {
                     $this->redirect(array('perfil/trocasenha'));
@@ -309,8 +309,8 @@ $id = $oidc->requestUserInfo('sub');
                
             }
         }
-        // display the login form
-        $this->renderPartial('login', array('model' => $model));
+       
+     
     }
 
     /**

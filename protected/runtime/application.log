@@ -4238,3 +4238,65 @@ Stack trace:
 #13 {main}
 REQUEST_URI=/index.php?r=site/login
 ---
+2019/04/30 15:09:31 [error] [php] file_get_contents(http://redepara.com.br:8019/usuarios/2): failed to open stream: HTTP request failed! HTTP/1.1 500 Internal Server Error
+ (C:\wamp\www\bolao-master\protected\controllers\SiteController.php:291)
+Stack trace:
+#0 C:\wamp\www\bolao-master\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\bolao-master\framework\web\CController.php(286): SiteController->runAction()
+#2 C:\wamp\www\bolao-master\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(282): SiteController->run()
+#4 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\wamp\www\bolao-master\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 C:\wamp\www\bolao-master\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login&code=3c3a4262750937ba95115fa973a7e242&state=4d0a4b3b0f5711c8ab300fa3b8a5c958&session_state=jO0szF0306B5rDOzEH8vyUWFpeKDX2_RSGoCatxLATU.766d41d08cc71b975b18a332b9e71ec8
+in C:\wamp\www\bolao-master\protected\controllers\SiteController.php (291)
+in C:\wamp\www\bolao-master\index.php (13)
+2019/04/30 15:18:27 [error] [exception.Jumbojett\OpenIDConnectClientException] exception 'Jumbojett\OpenIDConnectClientException' with message 'Got response: invalid_grant' in C:\wamp\www\bolao-master\vendor\jumbojett\openid-connect-php\src\OpenIDConnectClient.php:280
+Stack trace:
+#0 C:\wamp\www\bolao-master\protected\controllers\SiteController.php(283): Jumbojett\OpenIDConnectClient->authenticate()
+#1 C:\wamp\www\bolao-master\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#2 C:\wamp\www\bolao-master\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\wamp\www\bolao-master\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#4 C:\wamp\www\bolao-master\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(282): CController->run('login')
+#6 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#7 C:\wamp\www\bolao-master\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 C:\wamp\www\bolao-master\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=site/login&code=3c3a4262750937ba95115fa973a7e242&state=4d0a4b3b0f5711c8ab300fa3b8a5c958&session_state=jO0szF0306B5rDOzEH8vyUWFpeKDX2_RSGoCatxLATU.766d41d08cc71b975b18a332b9e71ec8
+---
+2019/04/30 15:19:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "confronto".' in C:\wamp\www\bolao-master\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\bolao-master\framework\web\CController.php(270): CController->missingAction('confronto')
+#1 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(282): CController->run('confronto')
+#2 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(141): CWebApplication->runController('site/confronto')
+#3 C:\wamp\www\bolao-master\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\wamp\www\bolao-master\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/confronto
+---
+2019/04/30 15:30:40 [error] [exception.Jumbojett\OpenIDConnectClientException] exception 'Jumbojett\OpenIDConnectClientException' with message 'Got response: invalid_grant' in C:\wamp\www\bolao-master\vendor\jumbojett\openid-connect-php\src\OpenIDConnectClient.php:280
+Stack trace:
+#0 C:\wamp\www\bolao-master\protected\controllers\SiteController.php(283): Jumbojett\OpenIDConnectClient->authenticate()
+#1 C:\wamp\www\bolao-master\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#2 C:\wamp\www\bolao-master\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\wamp\www\bolao-master\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#4 C:\wamp\www\bolao-master\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(282): CController->run('login')
+#6 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#7 C:\wamp\www\bolao-master\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 C:\wamp\www\bolao-master\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=site/login&code=dbed27da03d76ab45535226e762a6f27&state=a6d8de7c309220dd887cdc6312386524&session_state=iCf-C6MStfoTTv_R_JBVnYO9S9DpRmbXhWxr66NXL-o.2a0cb0a460109d34e2733837e420c916
+---
+2019/04/30 15:31:08 [error] [php] Undefined index: link-login-only (C:\wamp\www\bolao-master\protected\controllers\SiteController.php:313)
+Stack trace:
+#0 C:\wamp\www\bolao-master\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\wamp\www\bolao-master\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\wamp\www\bolao-master\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\wamp\www\bolao-master\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login&code=a4cffc17f7e0cd4eb2c70459727885d4&state=bbd6d2f70e6087fe81ae7dbc5433094d&session_state=yRblDR8FwjK3x0whrM3deHs1jEUuvS2f-vutstwU_Sw.d1388f9fc8e7d206ca3529475baa4060
+in C:\wamp\www\bolao-master\protected\controllers\SiteController.php (313)
+in C:\wamp\www\bolao-master\index.php (13)
