@@ -48,7 +48,7 @@
                         echo '</tr>';
 						$proximo = $posicaoNoArray;
 						$anterior = $posicaoNoArray-2;
-						if($posicaoNoArray < 18){
+						if($posicaoNoArray < 8){
 						if($conta != 1){
 				if($item["pontos"] != $dataProvider[$proximo]["pontos"] ){
                 $conta++;
