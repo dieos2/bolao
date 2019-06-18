@@ -1,6 +1,5 @@
 <?php
-require  '/vendor/autoload.php';
-use Jumbojett\OpenIDConnectClient;
+
 
 
 class SiteController extends Controller {
@@ -273,14 +272,7 @@ class SiteController extends Controller {
      */
     public function actionLogin() {
         $model = new LoginForm;
-$oidc = new OpenIDConnectClient(
-    'https://redeid.net.br/ids/',
-    'bolao',
-    'bolao'
-);
-$oidc->setVerifyHost(false);
-$oidc->setVerifyPeer(false);
-$oidc->authenticate();
+
 
 $id = $oidc->requestUserInfo('sub');
         //busca rede para
