@@ -60,7 +60,7 @@ return array(
 			'charset' => 'utf8',
 		),*/
 		'db'=>array(
-			'connectionString' => 'mysql:mysql465.umbler.com;dbname=bolao',
+			'connectionString' => 'mysql:host=mysql465.umbler.com;dbname=bolao',
 			'emulatePrepare' => true,
 			'username' => 'dieos',
 			'password' => 'di140984',
