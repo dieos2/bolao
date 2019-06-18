@@ -274,14 +274,7 @@ class SiteController extends Controller {
         $model = new LoginForm;
 
 
-$id = $oidc->requestUserInfo('sub');
-        //busca rede para
-        $uri = 'http://redepara.com.br:8019/usuarios/'.$id;
-    $reqPrefs['http']['method'] = 'GET';
-    $reqPrefs['http']['header'] = 'X-Auth-Token: a41e5fabfe4e47c3a1c6182573bf8297';
-    $stream_context = stream_context_create($reqPrefs);
-    $response = file_get_contents($uri, false, $stream_context);
-    $usuarioRede = json_decode($response);
+
 	
         // if it is ajax validation request
      
@@ -301,7 +294,7 @@ $id = $oidc->requestUserInfo('sub');
                
             }
         }
-       
+         $this->renderPartial('login', array('model' => $model));
      
     }
 
