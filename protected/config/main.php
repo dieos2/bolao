@@ -60,10 +60,10 @@ return array(
 			'charset' => 'utf8',
 		),*/
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=bolao',
+			'connectionString' => 'mysql:host=mysql465.umbler.com;dbname=bolao',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'dieos',
+			'password' => 'di140984',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(
