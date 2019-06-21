@@ -30,7 +30,7 @@ class GrupoPontos extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'grupo_Pontos';
+		return 'grupo_pontos';
 	}
 
 	/**
