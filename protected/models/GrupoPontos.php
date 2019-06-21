@@ -1,25 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "grupo".
+ * This is the model class for table "grupo_Pontos".
  *
- * The followings are the available columns in table 'grupo':
- * @property integer $id
- * @property string $nome
- * @property integer $id_evento
+ * The followings are the available columns in table 'grupo_Pontos':
+ * @property integer $int
+ * @property integer $id_grupo
+ * @property integer $id_pontos
+ * @property string $tipo
  *
  * The followings are the available model relations:
- * @property Confronto[] $confrontos
- * @property Evento $idEvento
- * @property GrupoPontos[] $grupoPontoses
- * @property GrupoTime[] $grupoTimes
+ * @property Grupo $idGrupo
+ * @property Pontos $idPontos
  */
-class Grupo extends CActiveRecord
+class GrupoPontos extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Grupo the static model class
+	 * @return GrupoPontos the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -31,7 +30,7 @@ class Grupo extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'grupo';
+		return 'grupo_Pontos';
 	}
 
 	/**
@@ -42,12 +41,12 @@ class Grupo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nome, id_evento', 'required'),
-			array('id_evento', 'numerical', 'integerOnly'=>true),
-			array('nome', 'length', 'max'=>3),
+			array('id_grupo, id_pontos, tipo', 'required'),
+			array('id_grupo, id_pontos', 'numerical', 'integerOnly'=>true),
+			array('tipo', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, nome, id_evento', 'safe', 'on'=>'search'),
+			array('int, id_grupo, id_pontos, tipo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,10 +58,8 @@ class Grupo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'confrontos' => array(self::HAS_MANY, 'Confronto', 'id_grupo'),
-			'idEvento' => array(self::BELONGS_TO, 'Evento', 'id_evento'),
-			'grupoPontoses' => array(self::HAS_MANY, 'GrupoPontos', 'id_grupo'),
-			'grupoTimes' => array(self::HAS_MANY, 'GrupoTime', 'id_grupo'),
+			'idGrupo' => array(self::BELONGS_TO, 'Grupo', 'id_grupo'),
+			'idPontos' => array(self::BELONGS_TO, 'Pontos', 'id_pontos'),
 		);
 	}
 
@@ -72,9 +69,10 @@ class Grupo extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'nome' => 'Nome',
-			'id_evento' => 'Id Evento',
+			'int' => 'Int',
+			'id_grupo' => 'Id Grupo',
+			'id_pontos' => 'Id Pontos',
+			'tipo' => 'Tipo',
 		);
 	}
 
@@ -89,9 +87,10 @@ class Grupo extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('nome',$this->nome,true);
-		$criteria->compare('id_evento',$this->id_evento);
+		$criteria->compare('int',$this->int);
+		$criteria->compare('id_grupo',$this->id_grupo);
+		$criteria->compare('id_pontos',$this->id_pontos);
+		$criteria->compare('tipo',$this->tipo,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

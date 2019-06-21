@@ -108,104 +108,42 @@ class ConfrontoController extends Controller {
           	if($apostaExiste != null){
 				$apostaExiste->delete();
 			}
+                          $Criteria = new CDbCriteria();
+           
                 if ($item->placar_casa == $model->placar_casa && $item->placar_visitante == $model->placar_visitante) {
-					
+		    $Criteria->condition = "id_grupo=$model->id_grupo and tipo='exato'" ;
                     $modelRank = new Rank;
                     $modelRank->id_user = $item->id_user;
                     $modelRank->data = date('Y-m-d H:i:s');
                     $modelRank->id_aposta = $item->id;
-                    if($item->idConfronto->id_grupo == 10){
-                    $modelRank->id_ponto = 3;
-                }else if($item->idConfronto->id_grupo == 14)
-                    {
-						$modelRank->id_ponto = 5;
-                    }else if($item->idConfronto->id_grupo == 12)
-                    {
-						$modelRank->id_ponto = 7;
-                    }else if($item->idConfronto->id_grupo == 13)
-                    {
-						$modelRank->id_ponto = 9;
-                    }else if($item->idConfronto->id_grupo == 11)
-                    {
-						$modelRank->id_ponto = 9;
-                    }else
-					{
-					$modelRank->id_ponto = 1;
-					}
+                    $modelRank->id_ponto = GrupoPontos::model()->find($Criteria)->idPontos->id;
+                
                     $modelRank->save();
                 } else if ($model->vencedor != null) {
                     if ($item->placar_casa > $item->placar_visitante && $model->vencedor == $model->id_time_casa) {
+                        $Criteria->condition = "id_grupo=$model->id_grupo and tipo='vitoria'" ;
                         $modelRank = new Rank;
                         $modelRank->id_user = $item->id_user;
                         $modelRank->data = date('Y-m-d H:i:s');
                         $modelRank->id_aposta = $item->id;
-                          if($item->idConfronto->id_grupo == 10){
-                    $modelRank->id_ponto = 4;
-                }else if($item->idConfronto->id_grupo == 11)
-                    {
-						$modelRank->id_ponto = 6;
-                    }else if($item->idConfronto->id_grupo == 12)
-                    {
-						$modelRank->id_ponto = 8;
-                    }else if($item->idConfronto->id_grupo == 13)
-                    {
-						$modelRank->id_ponto = 10;
-                    }else if($item->idConfronto->id_grupo == 11)
-                    {
-						$modelRank->id_ponto = 10;
-                    }else
-					{
-					$modelRank->id_ponto = 2;
-					}
+                        $modelRank->id_ponto = GrupoPontos::model()->find($Criteria)->idPontos->id;
                         $modelRank->save();
                     } else if ($item->placar_casa < $item->placar_visitante && $model->vencedor == $model->id_time_visitante) {
+                        $Criteria->condition = "id_grupo=$model->id_grupo and tipo='vitoria'" ;
                         $modelRank = new Rank;
                         $modelRank->id_user = $item->id_user;
                         $modelRank->data = date('Y-m-d H:i:s');
                         $modelRank->id_aposta = $item->id;
-                          if($item->idConfronto->id_grupo == 10){
-                    $modelRank->id_ponto = 4;
-                }else if($item->idConfronto->id_grupo == 14)
-                    {
-						$modelRank->id_ponto = 6;
-                    }else if($item->idConfronto->id_grupo == 12)
-                    {
-						$modelRank->id_ponto = 8;
-                    }else if($item->idConfronto->id_grupo == 13)
-                    {
-						$modelRank->id_ponto = 10;
-                    }else if($item->idConfronto->id_grupo == 11)
-                    {
-						$modelRank->id_ponto = 10;
-                    }else
-					{
-					$modelRank->id_ponto = 2;
-					}
+                        $modelRank->id_ponto = GrupoPontos::model()->find($Criteria)->idPontos->id;
                         $modelRank->save();
                     }
                 } else if ($item->placar_casa == $item->placar_visitante && $model->placar_casa == $model->placar_visitante) {
+                    $Criteria->condition = "id_grupo=$model->id_grupo and tipo='vitoria'" ;
                     $modelRank = new Rank;
                     $modelRank->id_user = $item->id_user;
                     $modelRank->data = date('Y-m-d H:i:s');
                     $modelRank->id_aposta = $item->id;
-                       if($item->idConfronto->id_grupo == 10){
-                    $modelRank->id_ponto = 4;
-                }else if($item->idConfronto->id_grupo == 14)
-                    {
-						$modelRank->id_ponto = 6;
-                    }else if($item->idConfronto->id_grupo == 12)
-                    {
-						$modelRank->id_ponto = 8;
-                    }else if($item->idConfronto->id_grupo == 13)
-                    {
-						$modelRank->id_ponto = 10;
-                    }else if($item->idConfronto->id_grupo == 11)
-                    {
-						$modelRank->id_ponto = 10;
-                    }else
-					{
-					$modelRank->id_ponto = 2;
-					}
+                    $modelRank->id_ponto = GrupoPontos::model()->find($Criteria)->idPontos->id;
                     $modelRank->save();
                 }
             }

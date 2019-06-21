@@ -1,25 +1,22 @@
 <?php
 
 /**
- * This is the model class for table "grupo".
+ * This is the model class for table "evento".
  *
- * The followings are the available columns in table 'grupo':
+ * The followings are the available columns in table 'evento':
  * @property integer $id
  * @property string $nome
- * @property integer $id_evento
+ * @property string $simbolo
  *
  * The followings are the available model relations:
- * @property Confronto[] $confrontos
- * @property Evento $idEvento
- * @property GrupoPontos[] $grupoPontoses
- * @property GrupoTime[] $grupoTimes
+ * @property Grupo[] $grupos
  */
-class Grupo extends CActiveRecord
+class Evento extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Grupo the static model class
+	 * @return Evento the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -31,7 +28,7 @@ class Grupo extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'grupo';
+		return 'evento';
 	}
 
 	/**
@@ -42,12 +39,12 @@ class Grupo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nome, id_evento', 'required'),
-			array('id_evento', 'numerical', 'integerOnly'=>true),
-			array('nome', 'length', 'max'=>3),
+			array('nome, simbolo', 'required'),
+			array('nome', 'length', 'max'=>30),
+			array('simbolo', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, nome, id_evento', 'safe', 'on'=>'search'),
+			array('id, nome, simbolo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,10 +56,7 @@ class Grupo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'confrontos' => array(self::HAS_MANY, 'Confronto', 'id_grupo'),
-			'idEvento' => array(self::BELONGS_TO, 'Evento', 'id_evento'),
-			'grupoPontoses' => array(self::HAS_MANY, 'GrupoPontos', 'id_grupo'),
-			'grupoTimes' => array(self::HAS_MANY, 'GrupoTime', 'id_grupo'),
+			'grupos' => array(self::HAS_MANY, 'Grupo', 'id_evento'),
 		);
 	}
 
@@ -74,7 +68,7 @@ class Grupo extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'nome' => 'Nome',
-			'id_evento' => 'Id Evento',
+			'simbolo' => 'Simbolo',
 		);
 	}
 
@@ -91,7 +85,7 @@ class Grupo extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('nome',$this->nome,true);
-		$criteria->compare('id_evento',$this->id_evento);
+		$criteria->compare('simbolo',$this->simbolo,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

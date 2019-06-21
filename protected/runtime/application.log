@@ -4321,3 +4321,195 @@ REQUEST_URI=/index.php?r=confronto/index
 HTTP_REFERER=http://sbolao.local/index.php?r=confronto/view&id=123
 ---
 >>>>>>> c17eb83776e21e5eab6a2dceb0a8993f79dc76fc
+2019/06/21 18:19:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu.
+' in C:\wamp\www\bolao-master\framework\db\CDbConnection.php:381
+Stack trace:
+#0 C:\wamp\www\bolao-master\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\wamp\www\bolao-master\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\wamp\www\bolao-master\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\wamp\www\bolao-master\framework\base\CApplication.php(438): CModule->getComponent('db')
+#4 C:\wamp\www\bolao-master\framework\db\ar\CActiveRecord.php(623): CApplication->getDb()
+#5 C:\wamp\www\bolao-master\framework\db\ar\CActiveRecord.php(2309): CActiveRecord->getDbConnection()
+#6 C:\wamp\www\bolao-master\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(User))
+#7 C:\wamp\www\bolao-master\protected\models\User.php(26): CActiveRecord::model('User')
+#8 C:\wamp\www\bolao-master\protected\components\UserIdentity.php(9): User::model()
+#9 C:\wamp\www\bolao-master\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#10 C:\wamp\www\bolao-master\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#11 C:\wamp\www\bolao-master\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#12 C:\wamp\www\bolao-master\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#13 C:\wamp\www\bolao-master\protected\controllers\SiteController.php(285): CModel->validate()
+#14 C:\wamp\www\bolao-master\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#15 C:\wamp\www\bolao-master\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\wamp\www\bolao-master\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\wamp\www\bolao-master\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(282): CController->run('login')
+#19 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#20 C:\wamp\www\bolao-master\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\wamp\www\bolao-master\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=site/login
+HTTP_REFERER=http://sbolao.local/index.php?r=site/login
+---
+2019/06/21 19:13:46 [error] [php] Undefined variable: criteria (C:\wamp\www\bolao-master\protected\controllers\ConfrontoController.php:135)
+Stack trace:
+#0 C:\wamp\www\bolao-master\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\wamp\www\bolao-master\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(133): ConfrontoController->runAction()
+#3 C:\wamp\www\bolao-master\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\bolao-master\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\bolao-master\framework\web\filters\CInlineFilter.php(58): ConfrontoController->filterAccessControl()
+#6 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\bolao-master\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\bolao-master\framework\web\CController.php(265): ConfrontoController->runActionWithFilters()
+#9 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(282): ConfrontoController->run()
+#10 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\bolao-master\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\wamp\www\bolao-master\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=confronto/update&id=117
+in C:\wamp\www\bolao-master\protected\controllers\ConfrontoController.php (135)
+in C:\wamp\www\bolao-master\index.php (13)
+2019/06/21 19:18:07 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Champ 'id_confronto' inconnu dans where clause. The SQL statement executed was: SELECT * FROM `grupo_pontos` `t` WHERE id_confronto=117 LIMIT 1.
+in C:\wamp\www\bolao-master\protected\controllers\ConfrontoController.php (135)
+in C:\wamp\www\bolao-master\index.php (13)
+2019/06/21 19:18:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Champ 'id_confronto' inconnu dans where clause. The SQL statement executed was: SELECT * FROM `grupo_pontos` `t` WHERE id_confronto=117 LIMIT 1' in C:\wamp\www\bolao-master\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\wamp\www\bolao-master\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\wamp\www\bolao-master\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\wamp\www\bolao-master\framework\db\ar\CActiveRecord.php(1402): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\wamp\www\bolao-master\protected\controllers\ConfrontoController.php(135): CActiveRecord->find(Object(CDbCriteria))
+#4 [internal function]: ConfrontoController->actionUpdate('117')
+#5 C:\wamp\www\bolao-master\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ConfrontoController), Array)
+#6 C:\wamp\www\bolao-master\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ConfrontoController), Object(ReflectionMethod), Array)
+#7 C:\wamp\www\bolao-master\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\bolao-master\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\wamp\www\bolao-master\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\bolao-master\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\bolao-master\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\wamp\www\bolao-master\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(282): CController->run('update')
+#16 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(141): CWebApplication->runController('confronto/updat...')
+#17 C:\wamp\www\bolao-master\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\wamp\www\bolao-master\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=confronto/update&id=117
+HTTP_REFERER=http://sbolao.local/index.php?r=confronto/update&id=117
+---
+2019/06/21 19:18:26 [error] [php] Trying to get property of non-object (C:\wamp\www\bolao-master\protected\controllers\ConfrontoController.php:135)
+Stack trace:
+#0 C:\wamp\www\bolao-master\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\wamp\www\bolao-master\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(133): ConfrontoController->runAction()
+#3 C:\wamp\www\bolao-master\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\bolao-master\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\bolao-master\framework\web\filters\CInlineFilter.php(58): ConfrontoController->filterAccessControl()
+#6 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\bolao-master\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\bolao-master\framework\web\CController.php(265): ConfrontoController->runActionWithFilters()
+#9 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(282): ConfrontoController->run()
+#10 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\bolao-master\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\wamp\www\bolao-master\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=confronto/update&id=117
+in C:\wamp\www\bolao-master\protected\controllers\ConfrontoController.php (135)
+in C:\wamp\www\bolao-master\index.php (13)
+2019/06/21 19:19:25 [error] [php] Trying to get property of non-object (C:\wamp\www\bolao-master\protected\controllers\ConfrontoController.php:135)
+Stack trace:
+#0 C:\wamp\www\bolao-master\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\wamp\www\bolao-master\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(133): ConfrontoController->runAction()
+#3 C:\wamp\www\bolao-master\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\bolao-master\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\bolao-master\framework\web\filters\CInlineFilter.php(58): ConfrontoController->filterAccessControl()
+#6 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\bolao-master\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\bolao-master\framework\web\CController.php(265): ConfrontoController->runActionWithFilters()
+#9 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(282): ConfrontoController->run()
+#10 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\bolao-master\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\wamp\www\bolao-master\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=confronto/update&id=117
+in C:\wamp\www\bolao-master\protected\controllers\ConfrontoController.php (135)
+in C:\wamp\www\bolao-master\index.php (13)
+2019/06/21 19:47:04 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Champ 'exato' inconnu dans where clause. The SQL statement executed was: SELECT * FROM `grupo_pontos` `t` WHERE id_grupo=3 and tipo=exato LIMIT 1.
+in C:\wamp\www\bolao-master\protected\controllers\ConfrontoController.php (119)
+in C:\wamp\www\bolao-master\index.php (13)
+2019/06/21 19:47:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Champ 'exato' inconnu dans where clause. The SQL statement executed was: SELECT * FROM `grupo_pontos` `t` WHERE id_grupo=3 and tipo=exato LIMIT 1' in C:\wamp\www\bolao-master\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\wamp\www\bolao-master\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\wamp\www\bolao-master\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\wamp\www\bolao-master\framework\db\ar\CActiveRecord.php(1402): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\wamp\www\bolao-master\protected\controllers\ConfrontoController.php(119): CActiveRecord->find(Object(CDbCriteria))
+#4 [internal function]: ConfrontoController->actionUpdate('117')
+#5 C:\wamp\www\bolao-master\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ConfrontoController), Array)
+#6 C:\wamp\www\bolao-master\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ConfrontoController), Object(ReflectionMethod), Array)
+#7 C:\wamp\www\bolao-master\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\bolao-master\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\wamp\www\bolao-master\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\bolao-master\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\bolao-master\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\wamp\www\bolao-master\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(282): CController->run('update')
+#16 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(141): CWebApplication->runController('confronto/updat...')
+#17 C:\wamp\www\bolao-master\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\wamp\www\bolao-master\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=confronto/update&id=117
+HTTP_REFERER=http://sbolao.local/index.php?r=confronto/update&id=117
+---
+2019/06/21 19:48:16 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Champ 'exato' inconnu dans where clause. The SQL statement executed was: SELECT * FROM `grupo_Pontos` `t` WHERE id_grupo=3 and tipo=exato LIMIT 1.
+in C:\wamp\www\bolao-master\protected\controllers\ConfrontoController.php (119)
+in C:\wamp\www\bolao-master\index.php (13)
+2019/06/21 19:48:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Champ 'exato' inconnu dans where clause. The SQL statement executed was: SELECT * FROM `grupo_Pontos` `t` WHERE id_grupo=3 and tipo=exato LIMIT 1' in C:\wamp\www\bolao-master\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\wamp\www\bolao-master\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\wamp\www\bolao-master\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\wamp\www\bolao-master\framework\db\ar\CActiveRecord.php(1402): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\wamp\www\bolao-master\protected\controllers\ConfrontoController.php(119): CActiveRecord->find(Object(CDbCriteria))
+#4 [internal function]: ConfrontoController->actionUpdate('117')
+#5 C:\wamp\www\bolao-master\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ConfrontoController), Array)
+#6 C:\wamp\www\bolao-master\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ConfrontoController), Object(ReflectionMethod), Array)
+#7 C:\wamp\www\bolao-master\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\bolao-master\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\wamp\www\bolao-master\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\bolao-master\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\bolao-master\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\wamp\www\bolao-master\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(282): CController->run('update')
+#16 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(141): CWebApplication->runController('confronto/updat...')
+#17 C:\wamp\www\bolao-master\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\wamp\www\bolao-master\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=confronto/update&id=117
+HTTP_REFERER=http://sbolao.local/index.php?r=confronto/update&id=117
+---
+2019/06/21 19:50:07 [error] [exception.CException] exception 'CException' with message 'Property "GrupoPontos.idPonto" is not defined.' in C:\wamp\www\bolao-master\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\wamp\www\bolao-master\framework\db\ar\CActiveRecord.php(143): CComponent->__get('idPonto')
+#1 C:\wamp\www\bolao-master\protected\controllers\ConfrontoController.php(119): CActiveRecord->__get('idPonto')
+#2 [internal function]: ConfrontoController->actionUpdate('117')
+#3 C:\wamp\www\bolao-master\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ConfrontoController), Array)
+#4 C:\wamp\www\bolao-master\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ConfrontoController), Object(ReflectionMethod), Array)
+#5 C:\wamp\www\bolao-master\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\bolao-master\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\bolao-master\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\bolao-master\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\bolao-master\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\bolao-master\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\bolao-master\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(282): CController->run('update')
+#14 C:\wamp\www\bolao-master\framework\web\CWebApplication.php(141): CWebApplication->runController('confronto/updat...')
+#15 C:\wamp\www\bolao-master\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\wamp\www\bolao-master\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php?r=confronto/update&id=117
+HTTP_REFERER=http://sbolao.local/index.php?r=confronto/update&id=117
+---
