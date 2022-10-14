@@ -44,7 +44,6 @@ $date = date_create($data->data);
                                            }?> <p id="demo_<?php echo $data->id?>" class="contdown" data-id="<?php echo $data->id?>" data-data="<?php echo $data->data?>"></p>
   </header>
                                 <div class="panel-body" style="text-align:center;">
-                                    <img width="125" src="images/<?php echo CHtml::encode($data->idGrupo->idEvento->simbolo)?>" /> <h2><?php echo CHtml::encode($data->idGrupo->idEvento->nome); ?></h2>
                                     <form id="<?php echo CHtml::encode($data->id) ?>" class="form-inline" role="form" data-validate="parsley">
                                         <div class="" style="width: 30%;display: initial;">
                                             <label>
