@@ -159,7 +159,7 @@ class ConfrontoController extends Controller {
                     }else
 					{
 					$modelRank->id_ponto = 2;
-					}                    } else if ($item->placar_casa < $item->placar_visitante && $model->vencedor == $model->id_time_visitante) {
+					}          $modelRank->save();          } else if ($item->placar_casa < $item->placar_visitante && $model->vencedor == $model->id_time_visitante) {
                         $Criteria->condition = "id_grupo=$model->id_grupo and tipo='vitoria'" ;
                         $modelRank = new Rank;
                         $modelRank->id_user = $item->id_user;
