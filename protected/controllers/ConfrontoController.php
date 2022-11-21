@@ -142,7 +142,6 @@ class ConfrontoController extends Controller {
                         $modelRank->id_user = $item->id_user;
                         $modelRank->data = date('Y-m-d H:i:s');
                         $modelRank->id_aposta = $item->id;
-                        $modelRank->id_ponto = GrupoPontos::model()->find($Criteria)->idPontos->id;
    if($item->idConfronto->id_grupo == 10){
                     $modelRank->id_ponto = 4;
                 }else if($item->idConfronto->id_grupo == 11)
