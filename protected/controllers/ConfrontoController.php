@@ -47,6 +47,23 @@ class ConfrontoController extends Controller {
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
      */
+
+    public function actionGetPosicaoAtual($id) {
+       
+       
+        $Criteria = new CDbCriteria();
+        $Criteria->condition = "id_user = $id";
+
+        $model = Posicao::model()->find($Criteria);
+       
+if($model != null){
+                return $model->atual;
+}else{
+    return RankController::actionGetPosicao($id);
+}
+            
+        
+    }
     public function actionView($id) {
         $this->render('view', array(
             'model' => $this->loadModel($id),
