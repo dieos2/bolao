@@ -6,7 +6,7 @@ $casa = "";
 }else{
 	$visitante = "";
 }
-use http://github.com/dieos2/bolao/blob/6f9252b9e35d7fb7da021b10f5eb5bfa4a10edd7/protected/controllers/RankController.php#L3; 
+use "http://casadogui.com.br/protected/controllers/RankController.php"; 
 
 $CriteriaRank = new CDbCriteria();
 			    $CriteriaRank->condition = "id_aposta = $data->id";
