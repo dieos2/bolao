@@ -16,7 +16,7 @@ $CriteriaRank = new CDbCriteria();
                                        <td> 
 									   <div class="<?php echo $casa ?>" style="width: 30%;display: initial;">
                                             <label>
-                                                <?php echo ucfirst(CHtml::encode($data->idUser->username)); ?> +  <?php if($rank)echo ucfirst(CHtml::encode($rank->idPonto->pontos)); ?></label>
+                                                <?php echo ucfirst(CHtml::encode($data->idUser->username)); ?>   <?php if($rank)echo "+"ucfirst(CHtml::encode($rank->idPonto->pontos)); "pts"?></label>
                                         </div>
 										</td>
 										<td>
@@ -32,7 +32,7 @@ $CriteriaRank = new CDbCriteria();
 </td>
 										<td><div class="<?php echo $visitante ?>" style="width: 30%;display: initial;">
                                              <label>
-                                                <?php echo ucfirst(CHtml::encode($data->idUser->username)); +  <?php if($rank)echo ucfirst(CHtml::encode($rank->idPonto->pontos)); ?> ?>
+                                                <?php echo ucfirst(CHtml::encode($data->idUser->username)); ?>   <?php if($rank)echo "+" ucfirst(CHtml::encode($rank->idPonto->pontos)); "pts"  ?>
 											</label>
                                               
                                         </div></td></tr>
