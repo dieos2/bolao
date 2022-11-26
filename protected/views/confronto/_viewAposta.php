@@ -32,7 +32,7 @@ $CriteriaRank = new CDbCriteria();
 </td>
 										<td><div class="<?php echo $visitante ?>" style="width: 30%;display: initial;">
                                              <label>
-                                                <?php echo ucfirst(CHtml::encode($data->idUser->username)); ?>   <?php if($rank) { echo "+"; echo CHtml::encode($rank->idPonto->pontos); echo "pts"; }  ?>
+                                                <?php echo ucfirst(CHtml::encode($data->idUser->username)); ?>  <span style="color: red "> <?php if($rank) { echo "+"; echo CHtml::encode($rank->idPonto->pontos); echo "pts"; }  ?> </span>
 											</label>
                                               
                                         </div></td></tr>
