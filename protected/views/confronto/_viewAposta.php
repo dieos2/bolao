@@ -6,6 +6,7 @@ $casa = "";
 }else{
 	$visitante = "";
 }
+use app\controllers\RankController; 
 
 $CriteriaRank = new CDbCriteria();
 			    $CriteriaRank->condition = "id_aposta = $data->id";
