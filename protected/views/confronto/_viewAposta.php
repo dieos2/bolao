@@ -17,7 +17,7 @@ $CriteriaRank = new CDbCriteria();
                                        <td> 
 									   <div class="<?php echo $casa ?>" style="width: 30%;display: initial;">
                                             <label>
-						    <span><?php echo ConfrontoController::actionGetPosicaoAtual($data->id_Use); echo "º" ?></span>   <?php echo ucfirst(CHtml::encode($data->idUser->username)); ?>   <span style="color: red "> <?php if($rank) { echo "+"; echo CHtml::encode($rank->idPonto->pontos); echo "pts" ;}?> </span></label>
+						    <span><?php echo ConfrontoController::actionGetPosicaoAtual($data->id_user); echo "º" ?></span>   <?php echo ucfirst(CHtml::encode($data->idUser->username)); ?>   <span style="color: red "> <?php if($rank) { echo "+"; echo CHtml::encode($rank->idPonto->pontos); echo "pts" ;}?> </span></label>
                                         </div>
 										</td>
 										<td>
