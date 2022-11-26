@@ -9,7 +9,7 @@ $casa = "";
 
 $CriteriaRank = new CDbCriteria();
 			    $CriteriaRank->condition = "id_aposta = $data->id";
-				$rank = Rank::model()->find($CriteriaApostas);
+				$rank = Rank::model()->find($CriteriaRank);
 ?>
                                  
 								   <tr class="divApostas_<?php echo CHtml::encode($data->id) ?>" >
