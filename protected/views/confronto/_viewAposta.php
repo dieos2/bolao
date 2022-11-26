@@ -7,6 +7,7 @@ $casa = "";
 	$visitante = "";
 }
 
+
 $CriteriaRank = new CDbCriteria();
 			    $CriteriaRank->condition = "id_aposta = $data->id";
 				$rank = Rank::model()->find($CriteriaRank);
