@@ -6,13 +6,17 @@ $casa = "";
 }else{
 	$visitante = "";
 }
+
+$CriteriaRank = new CDbCriteria();
+			    $CriteriaRank->condition = "id_aposta = $data->id";
+				$rank = Rank::model()->find($CriteriaApostas);
 ?>
                                  
 								   <tr class="divApostas_<?php echo CHtml::encode($data->id) ?>" >
                                        <td> 
 									   <div class="<?php echo $casa ?>" style="width: 30%;display: initial;">
                                             <label>
-                                                <?php echo ucfirst(CHtml::encode($data->idUser->username)); ?></label>
+                                                <?php echo ucfirst(CHtml::encode($data->idUser->username)); ?> +  <?php echo ucfirst(CHtml::encode($rank->idPonto->pontos)); ?></label>
                                         </div>
 										</td>
 										<td>
