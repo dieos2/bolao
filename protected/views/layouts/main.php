@@ -190,14 +190,14 @@ messaging.requestPermission().then(function() {
                                                 </a>
                                             </li>
 <li class="">
-                                                <a href="index.php?r=confronto/index&id=11" class="active">
+                                                <a href="index.php?r=confronto/index&id=13" class="active">
                                                     <i class="fa fa-columns icon">
                                                         <b class="bg-warning"></b>
                                                     </i><span>Final</span>
                                                 </a>
                                             </li>
 											<li class="">
-                                                <a href="index.php?r=confronto/index&id=13" class="active">
+                                                <a href="index.php?r=confronto/index&id=12" class="active">
                                                     <i class="fa fa-columns icon">
                                                         <b class="bg-warning"></b>
                                                     </i><span>Disputa de 3º Lugar</span>
@@ -205,21 +205,21 @@ messaging.requestPermission().then(function() {
                                             </li>
 											
 											<li class="">
-                                                <a href="index.php?r=confronto/index&id=12" class="active">
+                                                <a href="index.php?r=confronto/index&id=11" class="active">
                                                     <i class="fa fa-columns icon">
                                                         <b class="bg-warning"></b>
                                                     </i><span>Semifinal</span>
                                                 </a>
                                             </li>
                                               <li class="">
-                                                <a href="index.php?r=confronto/index&id=14" class="active">
+                                                <a href="index.php?r=confronto/index&id=10" class="active">
                                                     <i class="fa fa-columns icon">
                                                         <b class="bg-warning"></b>
                                                     </i><span>Quartas</span>
                                                 </a>
                                             </li>
                                              <li class="">
-                                                <a href="index.php?r=confronto/index&id=10" class="active">
+                                                <a href="index.php?r=confronto/index&id=9" class="active">
                                                     <i class="fa fa-columns icon">
                                                         <b class="bg-warning"></b>
                                                     </i><span>Oitavas</span>
